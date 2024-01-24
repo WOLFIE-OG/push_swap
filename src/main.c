@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 18:14:37 by otodd            ###   ########.fr       */
+/*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
+/*   Updated: 2024/01/24 18:22:48 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdbool.h>
-# include "../libft/include/libft.h"
+#include "../include/push_swap.h"
 
-typedef struct s_stack_node
+int	main(int arg_n, char **arg_a)
 {
-	int					value;
-	int					index;
-	int					cost;
-	bool				above_med;
-	struct s_stack_node	*target;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}	t_stack_node;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
-char	**split(char *str, char c);
+	(void)a;
+	(void)b;
+	a = NULL;
+	b = NULL;
+	if (arg_n == 1 || (arg_n == 2 && !arg_a[1][0]))
+		return (1);
+	else if (arg_n == 2)
+		arg_a = split(arg_a[1], ' ');
+	while (*arg_a)
+		ft_printf("%s\n", *arg_a++);
 
-#endif
+	return (0);
+}

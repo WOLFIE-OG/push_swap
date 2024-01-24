@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 
 SRC_DIR = src
@@ -7,8 +7,8 @@ OBJ_DIR = obj
 LIBFT_D = libft
 INC_DIR = include
 
-SRCS = $(SRC_DIR)/*.c
-OBJS = $(SRC_CLIENT:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 LIBFT = $(LIBFT_D)/build/libft.a
 LIBS = -L$(LIBFT_D)/build -lft
@@ -21,7 +21,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h
-	mkdir -p $(@D)
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
@@ -34,7 +34,6 @@ clean:
 fclean: clean
 	$(MAKE) -C $(LIBFT_D) fclean
 	rm -rf $(NAME)
-
 
 re: fclean all
 
