@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 18:22:48 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/24 18:25:28 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int	main(int arg_n, char **arg_a)
 		arg_a = split(arg_a[1], ' ');
 	while (*arg_a)
 		ft_printf("%s\n", *arg_a++);
-
 	return (0);
 }
