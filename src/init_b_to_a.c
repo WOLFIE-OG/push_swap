@@ -21,7 +21,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	while (a)
 	{
 		best_match_index = LONG_MAX;
-		current_a = a
+		current_a = a;
 		while (current_a)
 		{
 			if (current_a->value > a->value

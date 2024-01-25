@@ -88,7 +88,7 @@ void	set_cheapest(t_stack_node *node)
 
 	if (!node)
 		return ;
-	cheapest_n = LONG_MAX;
+	cheapest_v = LONG_MAX;
 	while (node)
 	{
 		if (node->cost < cheapest_v)
