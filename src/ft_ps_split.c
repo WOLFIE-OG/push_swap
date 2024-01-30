@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_ps_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:15:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/24 18:25:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 16:30:34 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static size_t	count_words(char *str, char c)
+static size_t	ft_ps_count_words(char *str, char c)
 {
 	size_t	counter;
 	bool	in_word;
@@ -36,7 +36,7 @@ static size_t	count_words(char *str, char c)
 	return (counter);
 }
 
-static char	*next_word(char *str, char c)
+static char	*ft_ps_next_word(char *str, char c)
 {
 	static int	pos = 0;
 	char		*next;
@@ -58,14 +58,14 @@ static char	*next_word(char *str, char c)
 	return (next);
 }
 
-char	**split(char *str, char c)
+char	**ft_ps_split(char *str, char c)
 {
 	int		counter;
 	char	**res;
 	size_t	index;
 
 	index = 0;
-	counter = count_words(str, c);
+	counter = ft_ps_count_words(str, c);
 	if (!counter)
 		exit(EXIT_FAILURE);
 	res = malloc(sizeof(char *) * (counter + 2));
@@ -81,7 +81,7 @@ char	**split(char *str, char c)
 			res[index++][0] = '\0';
 			continue ;
 		}
-		res[index++] = next_word(str, c);
+		res[index++] = ft_ps_next_word(str, c);
 	}
 	res[index] = NULL;
 	return (res);

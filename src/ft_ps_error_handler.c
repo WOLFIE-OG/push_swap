@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handler.c                                    :+:      :+:    :+:   */
+/*   ft_ps_error_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 15:36:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 16:32:11 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	error_syntax(char *str)
+int	ft_ps_error_syntax(char *str)
 {
 	if (!(*str == '+' || *str == '-' || ft_isdigit(*str)))
 		return (1);
@@ -22,7 +22,7 @@ int	error_syntax(char *str)
 		return (1);
 }
 
-int	error_duplicate(t_stack_node *a, int n)
+int	ft_ps_error_duplicate(t_stack_node *a, int n)
 {
 	if (!a)
 		return (0);
@@ -35,7 +35,7 @@ int	error_duplicate(t_stack_node *a, int n)
 	return (0);
 }
 
-void	free_stack(t_stack_node **stack)
+void	ft_ps_free_stack(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 	t_stack_node	*current;
@@ -53,9 +53,9 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	ft_ps_free_errors(t_stack_node **a)
 {
-	free_stack(a);
-	ft_printf("Error!\n");
+	ft_ps_free_stack(a);
+	ft_printf(BRED"Error!\n"RESET);
 	exit(EXIT_FAILURE);
 }

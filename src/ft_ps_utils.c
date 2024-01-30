@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_ps_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/25 18:12:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 16:30:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-size_t	stack_len(t_stack_node *node)
+size_t	ft_ps_stack_len(t_stack_node *node)
 {
 	size_t	c;
 
@@ -27,7 +27,7 @@ size_t	stack_len(t_stack_node *node)
 	return (c);
 }
 
-t_stack_node	*get_last(t_stack_node *node)
+t_stack_node	*ft_ps_get_last(t_stack_node *node)
 {
 	if (!node)
 		return (NULL);
@@ -36,7 +36,7 @@ t_stack_node	*get_last(t_stack_node *node)
 	return (node);
 }
 
-bool	is_sorted(t_stack_node *node)
+bool	ft_ps_is_sorted(t_stack_node *node)
 {
 	if (!node)
 		return (1);
@@ -49,7 +49,7 @@ bool	is_sorted(t_stack_node *node)
 	return (true);
 }
 
-t_stack_node	*get_min(t_stack_node *node)
+t_stack_node	*ft_ps_get_min(t_stack_node *node)
 {
 	long			min;
 	t_stack_node	*min_node;
@@ -69,7 +69,7 @@ t_stack_node	*get_min(t_stack_node *node)
 	return (min_node);
 }
 
-t_stack_node	*get_max(t_stack_node *node)
+t_stack_node	*ft_ps_get_max(t_stack_node *node)
 {
 	long			max;
 	t_stack_node	*max_node;

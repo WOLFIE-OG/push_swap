@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*   ft_ps_init_b_to_a.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/25 18:18:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 16:30:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	set_target_b(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_set_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
@@ -33,16 +33,16 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 			current_a = current_a->next;
 		}
 		if (best_match_index == LONG_MAX)
-			b->target = get_min(a);
+			b->target = ft_ps_get_min(a);
 		else
 			b->target = target_node;
 		b = b->next;
 	}
 }
 
-void	init_nodes_b(t_stack_node *a, t_stack_node *b)
+void	ft_ps_init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
-	current_index(a);
-	current_index(b);
-	set_target_b(a, b);
+	ft_ps_current_index(a);
+	ft_ps_current_index(b);
+	ft_ps_set_target_b(a, b);
 }

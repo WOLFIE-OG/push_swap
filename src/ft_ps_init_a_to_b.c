@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_a_to_b.c                                      :+:      :+:    :+:   */
+/*   ft_ps_init_a_to_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 14:45:34 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 16:32:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	current_index(t_stack_node *node)
+void	ft_ps_current_index(t_stack_node *node)
 {
 	size_t	index;
 	size_t	med;
@@ -20,7 +20,7 @@ void	current_index(t_stack_node *node)
 	index = 0;
 	if (!node)
 		return ;
-	med = stack_len(node);
+	med = ft_ps_stack_len(node);
 	while (node)
 	{
 		node->index = index;
@@ -33,7 +33,7 @@ void	current_index(t_stack_node *node)
 	}
 }
 
-static void	set_target_a(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
 	t_stack_node	*target_node;
@@ -54,20 +54,20 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 			current_b = current_b->next;
 		}
 		if (best_match_index == LONG_MIN)
-			a->target = get_max(b);
+			a->target = ft_ps_get_max(b);
 		else
 			a->target = target_node;
 		a = a->next;
 	}
 }
 
-static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	size_t	len_a;
 	size_t	len_b;
 
-	len_a = stack_len(a);
-	len_b = stack_len(b);
+	len_a = ft_ps_stack_len(a);
+	len_b = ft_ps_stack_len(b);
 	while (a)
 	{
 		a->cost = a->index;
@@ -81,7 +81,7 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	set_cheapest(t_stack_node *node)
+void	ft_ps_set_cheapest(t_stack_node *node)
 {
 	long			cheapest_v;
 	t_stack_node	*cheapest_n;
@@ -101,12 +101,11 @@ void	set_cheapest(t_stack_node *node)
 	cheapest_n->is_cheapest = true;
 }
 
-void	init_nodes_a(t_stack_node *a, t_stack_node *b)
+void	ft_ps_init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
-	current_index(a);
-	current_index(b);
-	set_target_a(a, b);
-	cost_analysis_a(a, b);
-	set_cheapest(a);
+	ft_ps_current_index(a);
+	ft_ps_current_index(b);
+	ft_ps_set_target_a(a, b);
+	ft_ps_cost_analysis_a(a, b);
+	ft_ps_set_cheapest(a);
 }
-
