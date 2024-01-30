@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/26 12:28:44 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/29 16:19:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int arg_n, char **arg_a)
 	(void)b;
 	a = NULL;
 	b = NULL;
-	if (arg_n == 1 || (arg_n == 2 && !arg_a[1][0]))
+	if (arg_n < 2 && !arg_a[1][0])
 		return (1);
 	else if (arg_n == 2)
 		arg_a = ft_split(arg_a[1], ' ');

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/25 18:15:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/30 14:45:34 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,3 +109,4 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 	cost_analysis_a(a, b);
 	set_cheapest(a);
 }
+
