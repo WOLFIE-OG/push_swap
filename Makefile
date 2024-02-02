@@ -1,5 +1,11 @@
+# Define colors
+YELLOW=\033[1;33m
+RED=\033[1;31m
+GREEN=\033[1;32m
+NC=\033[0m
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
 SRC_DIR = src
@@ -18,22 +24,26 @@ HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
+	@echo "$(GREEN)[PUSH_SWAP] Building $@...$(NC)"
+	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@echo "$(GREEN)[PUSH_SWAP] Compiling $< --> $@$(NC)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_D)
+	@$(MAKE) -s -C $(LIBFT_D)
 
 clean:
-	$(MAKE) -C $(LIBFT_D) clean
-	rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)[PUSH_SWAP] Cleaning object files...$(NC)"
+	@$(MAKE) -s -C $(LIBFT_D) clean
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_D) fclean
-	rm -rf $(NAME)
+	@echo "$(YELLOW)[PUSH_SWAP] Cleaning executable file...$(NC)"
+	@$(MAKE) -s -C $(LIBFT_D) fclean
+	@rm -rf $(NAME)
 
 re: fclean all
 
