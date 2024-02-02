@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/31 18:58:02 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/02 15:21:43 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_ps_init_stack_a(t_stack_node **stack, char **arg_a)
 {
 	long	n;
 	int		i;
-	
+
 	i = 0;
 	while (arg_a[i])
 	{
@@ -70,27 +70,23 @@ t_stack_node	*ft_ps_get_cheapest(t_stack_node *node)
 	return (NULL);
 }
 
-void	ft_ps_prep_push(t_stack_node **stack, t_stack_node *t_node, char s_name)
+void	ft_ps_push_prep(t_stack_node **s, t_stack_node *t, char n)
 {
-	while (*stack != t_node)
+	while (*s != t)
 	{
-		if (s_name == 'a')
+		if (n == 'a')
 		{
-			if (t_node->is_above_med)
-				// ra
-				continue ;
+			if (t->is_above_med)
+				ra(s);
 			else
-				// rra
-				continue ;
+				rra(s);
 		}
-		else if (s_name == 'b')
+		else if (n == 'b')
 		{
-			if (t_node->is_above_med)
-				// rb
-				continue ;
+			if (t->is_above_med)
+				rb(s);
 			else
-				// rrb
-				continue ;
+				rrb(s);
 		}
 	}
 }

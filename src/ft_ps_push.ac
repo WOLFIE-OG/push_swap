@@ -1,32 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ps_init.c                                       :+:      :+:    :+:   */
+/*   ft_ps_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 16:26:24 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/02 15:22:44 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/02 15:25:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-int	main(int arg_n, char **arg_a)
-{
-	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
-
-	(void)stack_b;
-	stack_a = NULL;
-	stack_b = NULL;
-	if (arg_n < 2 && !arg_a[1][0])
-		return (1);
-	else if (arg_n == 2)
-		arg_a = ft_split(arg_a[1], ' ');
-	ft_ps_init_stack_a(&stack_a, arg_a + 1);
-	ft_printf("%d", ft_ps_stack_len(stack_a));
-	free(stack_a);
-	free(arg_a);
-	return (0);
-}
+#include 

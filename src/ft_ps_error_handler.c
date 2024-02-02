@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 17:10:02 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/02 14:00:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_ps_error_syntax(char *str)
 		return (1);
 	if ((*str == '+' || *str == '-') && !ft_isdigit(str[1]))
 		return (1);
-	if (ft_ischeck_str(str, ft_isdigit))
+	if (!ft_ischeck_str(str, ft_isdigit))
 		return (1);
 	return (0);
 }
