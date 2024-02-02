@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 16:33:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/01/31 18:57:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,11 @@ int				ft_ps_error_syntax(char *str);
 int				ft_ps_error_duplicate(t_stack_node *a, int n);
 void			ft_ps_free_stack(t_stack_node **stack);
 void			ft_ps_free_errors(t_stack_node **a);
+
+// Stack Init
+
+void			ft_ps_init_stack_a(t_stack_node **stack, char **arg_a);
+t_stack_node	*ft_ps_get_cheapest(t_stack_node *node);
+void			ft_ps_prep_push(t_stack_node **stack, t_stack_node *t_node, char s_name);
 
 #endif

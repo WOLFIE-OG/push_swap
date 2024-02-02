@@ -13,5 +13,6 @@
 		"limits": "c",
 		"algorithm": "c",
 		"cstdlib": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
