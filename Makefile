@@ -6,7 +6,7 @@ BLUE=\033[0;34m
 NC=\033[0m
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
 SRC_DIR = src
