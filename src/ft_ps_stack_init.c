@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 17:56:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 19:13:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,23 +70,23 @@ t_stack	*ft_ps_get_cheapest(t_stack *node)
 	return (NULL);
 }
 
-void	ft_ps_push_prep(t_stack **s, t_stack *t, int n)
+void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n)
 {
-	while (*s != t)
+	while (*stack != target)
 	{
 		if (n)
 		{
-			if (t->is_above_med)
-				ra(s);
+			if (target->is_above_med)
+				ra(stack);
 			else
-				rra(s);
+				rra(stack);
 		}
 		else
 		{
-			if (t->is_above_med)
-				rb(s);
+			if (target->is_above_med)
+				rb(stack);
 			else
-				rrb(s);
+				rrb(stack);
 		}
 	}
 }
