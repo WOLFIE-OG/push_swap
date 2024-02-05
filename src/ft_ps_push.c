@@ -6,15 +6,15 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:22:44 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 14:09:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:45:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	ft_ps_push(t_stack_node **stack_dst, t_stack_node **stack_src)
+static void	ft_ps_push(t_stack **stack_dst, t_stack **stack_src)
 {
-	t_stack_node	*node_push;
+	t_stack	*node_push;
 
 	if (!*stack_src)
 		return ;
@@ -36,14 +36,14 @@ static void	ft_ps_push(t_stack_node **stack_dst, t_stack_node **stack_src)
 	}
 }
 
-void	pa(t_stack_node **stack_a, t_stack_node **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_ps_push(stack_a, stack_b);
 	if (!DEBUG_PRINT)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **stack_b, t_stack_node **stack_a)
+void	pb(t_stack **stack_b, t_stack **stack_a)
 {
 	ft_ps_push(stack_b, stack_a);
 	if (!DEBUG_PRINT)

@@ -6,17 +6,17 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 16:30:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:48:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	ft_ps_set_target_b(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_set_target_b(t_stack *a, t_stack *b)
 {
-	t_stack_node	*current_a;
-	t_stack_node	*target_node;
-	long			best_match_index;
+	t_stack	*current_a;
+	t_stack	*target_node;
+	long	best_match_index;
 
 	while (a)
 	{
@@ -40,7 +40,7 @@ static void	ft_ps_set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	ft_ps_init_nodes_b(t_stack_node *a, t_stack_node *b)
+void	ft_ps_init_nodes_b(t_stack *a, t_stack *b)
 {
 	ft_ps_current_index(a);
 	ft_ps_current_index(b);

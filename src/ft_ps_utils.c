@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 16:35:16 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 16:33:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-size_t	ft_ps_stack_len(t_stack_node *node)
+size_t	ft_ps_stack_len(t_stack *node)
 {
 	size_t	c;
 
@@ -27,7 +27,7 @@ size_t	ft_ps_stack_len(t_stack_node *node)
 	return (c);
 }
 
-t_stack_node	*ft_ps_get_last(t_stack_node *node)
+t_stack	*ft_ps_get_last(t_stack *node)
 {
 	if (!node)
 		return (NULL);
@@ -36,7 +36,7 @@ t_stack_node	*ft_ps_get_last(t_stack_node *node)
 	return (node);
 }
 
-bool	ft_ps_is_sorted(t_stack_node *node)
+bool	ft_ps_is_sorted(t_stack *node)
 {
 	if (!node)
 		return (1);
@@ -49,14 +49,14 @@ bool	ft_ps_is_sorted(t_stack_node *node)
 	return (true);
 }
 
-t_stack_node	*ft_ps_get_min(t_stack_node *node)
+t_stack	*ft_ps_get_min(t_stack *node)
 {
-	long			min;
-	t_stack_node	*min_node;
+	long	min;
+	t_stack	*min_node;
 
 	if (!node)
 		return (NULL);
-	min = LONG_MIN;
+	min = LONG_MAX;
 	while (node)
 	{
 		if (node->value < min)
@@ -69,14 +69,14 @@ t_stack_node	*ft_ps_get_min(t_stack_node *node)
 	return (min_node);
 }
 
-t_stack_node	*ft_ps_get_max(t_stack_node *node)
+t_stack	*ft_ps_get_max(t_stack *node)
 {
-	long			max;
-	t_stack_node	*max_node;
+	long	max;
+	t_stack	*max_node;
 
 	if (!node)
 		return (NULL);
-	max = LONG_MAX;
+	max = LONG_MIN;
 	while (node)
 	{
 		if (node->value > max)

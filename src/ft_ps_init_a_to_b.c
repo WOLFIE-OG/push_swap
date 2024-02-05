@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/01/30 16:35:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:48:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_ps_current_index(t_stack_node *node)
+void	ft_ps_current_index(t_stack *node)
 {
 	size_t	index;
 	size_t	med;
@@ -33,11 +33,11 @@ void	ft_ps_current_index(t_stack_node *node)
 	}
 }
 
-static void	ft_ps_set_target_a(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_set_target_a(t_stack *a, t_stack *b)
 {
-	t_stack_node	*current_b;
-	t_stack_node	*target_node;
-	long			best_match_index;
+	t_stack	*current_b;
+	t_stack	*target_node;
+	long	best_match_index;
 
 	while (a)
 	{
@@ -61,7 +61,7 @@ static void	ft_ps_set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-static void	ft_ps_cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	ft_ps_cost_analysis_a(t_stack *a, t_stack *b)
 {
 	size_t	len_a;
 	size_t	len_b;
@@ -81,10 +81,10 @@ static void	ft_ps_cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	ft_ps_set_cheapest(t_stack_node *node)
+void	ft_ps_set_cheapest(t_stack *node)
 {
-	long			cheapest_v;
-	t_stack_node	*cheapest_n;
+	long	cheapest_v;
+	t_stack	*cheapest_n;
 
 	if (!node)
 		return ;
@@ -101,7 +101,7 @@ void	ft_ps_set_cheapest(t_stack_node *node)
 	cheapest_n->is_cheapest = true;
 }
 
-void	ft_ps_init_nodes_a(t_stack_node *a, t_stack_node *b)
+void	ft_ps_init_nodes_a(t_stack *a, t_stack *b)
 {
 	ft_ps_current_index(a);
 	ft_ps_current_index(b);

@@ -6,15 +6,15 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:04:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 15:16:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:45:23 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	ft_ps_rotate(t_stack_node **stack)
+static void	ft_ps_rotate(t_stack **stack)
 {
-	t_stack_node	*node_last;
+	t_stack	*node_last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -26,21 +26,21 @@ static void	ft_ps_rotate(t_stack_node **stack)
 	node_last->next->next = NULL;
 }
 
-void	ra(t_stack_node **stack_a)
+void	ra(t_stack **stack_a)
 {
 	ft_ps_rotate(stack_a);
 	if (!DEBUG_PRINT)
 		ft_printf("ra\n");
 }
 
-void	rb(t_stack_node **stack_b)
+void	rb(t_stack **stack_b)
 {
 	ft_ps_rotate(stack_b);
 	if (!DEBUG_PRINT)
 		ft_printf("rb\n");
 }
 
-void	rr(t_stack_node **stack_a, t_stack_node **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_ps_rotate(stack_a);
 	ft_ps_rotate(stack_b);

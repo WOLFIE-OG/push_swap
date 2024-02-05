@@ -6,20 +6,20 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 15:21:43 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:45:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	ft_ps_append_node(t_stack_node **stack, int n)
+static void	ft_ps_append_node(t_stack **stack, int n)
 {
-	t_stack_node	*node;
-	t_stack_node	*node_last;
+	t_stack	*node;
+	t_stack	*node_last;
 
 	if (!stack)
 		return ;
-	node = malloc(sizeof(t_stack_node));
+	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
 	node->next = NULL;
@@ -37,7 +37,7 @@ static void	ft_ps_append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	ft_ps_init_stack_a(t_stack_node **stack, char **arg_a)
+void	ft_ps_init_stack_a(t_stack **stack, char **arg_a)
 {
 	long	n;
 	int		i;
@@ -57,7 +57,7 @@ void	ft_ps_init_stack_a(t_stack_node **stack, char **arg_a)
 	}
 }
 
-t_stack_node	*ft_ps_get_cheapest(t_stack_node *node)
+t_stack	*ft_ps_get_cheapest(t_stack *node)
 {
 	if (!node)
 		return (NULL);
@@ -70,7 +70,7 @@ t_stack_node	*ft_ps_get_cheapest(t_stack_node *node)
 	return (NULL);
 }
 
-void	ft_ps_push_prep(t_stack_node **s, t_stack_node *t, char n)
+void	ft_ps_push_prep(t_stack **s, t_stack *t, char n)
 {
 	while (*s != t)
 	{

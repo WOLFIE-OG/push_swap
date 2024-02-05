@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:35:55 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 15:21:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:45:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	ft_ps_swap(t_stack_node **head)
+static void	ft_ps_swap(t_stack **head)
 {
 	if (!*head || !(*head)->next)
 		return ;
@@ -25,21 +25,21 @@ static void	ft_ps_swap(t_stack_node **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_stack_node **stack_a)
+void	sa(t_stack **stack_a)
 {
 	ft_ps_swap(stack_a);
 	if (!DEBUG_PRINT)
 		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **stack_b)
+void	sb(t_stack **stack_b)
 {
 	ft_ps_swap(stack_b);
 	if (!DEBUG_PRINT)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **stack_a, t_stack_node **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_ps_swap(stack_a);
 	ft_ps_swap(stack_b);

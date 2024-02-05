@@ -3,6 +3,8 @@
 		"*.c": "c",
 		"ft_printf.h": "c",
 		"ft_get_next_line.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"libft.h": "c",
+		"array": "c"
 	}
 }

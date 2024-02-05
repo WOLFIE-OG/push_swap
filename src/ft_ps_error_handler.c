@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 14:00:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 15:45:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_ps_error_syntax(char *str)
 	return (0);
 }
 
-int	ft_ps_error_duplicate(t_stack_node *a, int n)
+int	ft_ps_error_duplicate(t_stack *a, int n)
 {
 	if (!a)
 		return (0);
@@ -36,10 +36,10 @@ int	ft_ps_error_duplicate(t_stack_node *a, int n)
 	return (0);
 }
 
-void	ft_ps_free_stack(t_stack_node **stack)
+void	ft_ps_free_stack(t_stack **stack)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*current;
+	t_stack	*tmp;
+	t_stack	*current;
 
 	if (!stack)
 		return ;
@@ -54,7 +54,7 @@ void	ft_ps_free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	ft_ps_free_errors(t_stack_node **a)
+void	ft_ps_free_errors(t_stack **a)
 {
 	ft_ps_free_stack(a);
 	ft_printf(BRED"Error!\n"RESET);
