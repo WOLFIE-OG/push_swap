@@ -24,14 +24,6 @@ HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 
 all: $(NAME)
 
-display:
-	@echo "$(BLUE)=======================================================$(NC)"
-	@echo "Program: $(NAME)"
-	@echo "Compiler: $(CC)"
-	@echo "Compiler Flags: $(CFLAGS)"
-	@echo "Using libft?: Yes"
-	@echo "$(BLUE)=======================================================$(NC)"
-
 check_norminette:
 	@echo "[$(BLUE)PUSH_SWAP$(NC)] Checking for errors with Norminette..."
 	@if [ $$(pip list | grep "norminette" | wc -l) -gt 1 ]; then \
