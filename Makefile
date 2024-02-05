@@ -24,24 +24,24 @@ HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@echo "$(GREEN)[PUSH_SWAP] Building $@...$(NC)"
+	@echo "[$(GREEN)PUSH_SWAP$(NC)] Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(GREEN)[PUSH_SWAP] Compiling $< --> $@$(NC)"
+	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_D)
 
 clean:
-	@echo "$(YELLOW)[PUSH_SWAP] Cleaning object files...$(NC)"
+	@echo "[$(YELLOW)PUSH_SWAP$(NC)] Cleaning object files..."
 	@$(MAKE) -s -C $(LIBFT_D) clean
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "$(YELLOW)[PUSH_SWAP] Cleaning executable file...$(NC)"
+	@echo "[$(YELLOW)PUSH_SWAP$(NC)] Cleaning executable file..."
 	@$(MAKE) -s -C $(LIBFT_D) fclean
 	@rm -rf $(NAME)
 
