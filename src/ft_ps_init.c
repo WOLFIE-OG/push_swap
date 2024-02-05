@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 17:04:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 18:24:14 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,14 @@ int	main(int arg_n, char **arg_a)
 		offset = 0;
 	}
 	ft_ps_init_stack_a(&stack_a, arg_a + offset);
-	stack_b = stack_a;
-	while (stack_b)
-	{
-		ft_printf("%d\n", stack_b->value);
-		stack_b = stack_b->next;
-	}
 	if (!ft_ps_is_sorted(stack_a))
 	{
 		if (ft_ps_stack_len(stack_a) == 2)
 			sa(&stack_a);
 		else if (ft_ps_stack_len(stack_a) == 3)
 			ft_ps_sort_three(&stack_a);
-	}
-	ft_printf("\n");
-	stack_b = stack_a;
-	while (stack_b)
-	{
-		ft_printf("%d\n", stack_b->value);
-		stack_b = stack_b->next;
+		else
+			ft_ps_sort_stacks(&stack_a, &stack_b);
 	}
 	ft_ps_free_stack(&stack_a);
 	if (offset == 0)

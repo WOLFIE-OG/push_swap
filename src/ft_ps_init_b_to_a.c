@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 15:48:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 18:28:05 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	ft_ps_set_target_b(t_stack *a, t_stack *b)
 	t_stack	*target_node;
 	long	best_match_index;
 
-	while (a)
+	while (b)
 	{
 		best_match_index = LONG_MAX;
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->value > a->value
+			if (current_a->value > b->value
 				&& current_a->value < best_match_index)
 			{
 				best_match_index = current_a->value;

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:04:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 15:45:38 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 18:00:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static void	ft_ps_rev_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	ft_ps_rev_rotate(stack_a);
-	if (!DEBUG_PRINT)
+	if (DEBUG_PRINT)
 		ft_printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	ft_ps_rev_rotate(stack_b);
-	if (!DEBUG_PRINT)
+	if (DEBUG_PRINT)
 		ft_printf("rrb\n");
 }
 
@@ -44,6 +44,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_ps_rev_rotate(stack_a);
 	ft_ps_rev_rotate(stack_b);
-	if (!DEBUG_PRINT)
+	if (DEBUG_PRINT)
 		ft_printf("rrr\n");
 }

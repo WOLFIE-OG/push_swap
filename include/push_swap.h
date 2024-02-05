@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 15:47:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 18:22:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_ps_free_errors(t_stack **a);
 
 void	ft_ps_init_stack_a(t_stack **stack, char **arg_a);
 t_stack	*ft_ps_get_cheapest(t_stack *node);
-void	ft_ps_push_prep(t_stack **s, t_stack *t, char n);
+void	ft_ps_push_prep(t_stack **s, t_stack *t, int n);
 
 // Commands | Rev Rotate - ft_ps_rev_rotate.c 
 
@@ -90,5 +90,9 @@ void	pb(t_stack **stack_b, t_stack **stack_a);
 // Sorters | Sort Three - ft_ps_sort_three.c
 
 void	ft_ps_sort_three(t_stack **stack_a);
+
+// Sorters | Sort Stacks - ft_ps_sort_stacks.c
+
+void	ft_ps_sort_stacks(t_stack **stack_a, t_stack **stack_b);
 
 #endif
