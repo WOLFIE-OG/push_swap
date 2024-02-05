@@ -2,6 +2,7 @@
 YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
+BLUE=\033[0;34m
 NC=\033[0m
 
 CC = cc
@@ -21,7 +22,29 @@ LIBS = -L$(LIBFT_D)/build -lft
 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 
-all: $(NAME)
+all: display check_norminette $(NAME)
+
+display:
+	@echo "$(BLUE)=======================================================$(NC)"
+	@echo "Program: $(NAME)"
+	@echo "Compiler: $(CC)"
+	@echo "Compiler Flags: $(CFLAGS)"
+	@echo "Using libft?: Yes"
+	@echo "$(BLUE)=======================================================$(NC)"
+
+check_norminette:
+	@echo "[$(BLUE)PUSH_SWAP$(NC)] Checking for errors with Norminette..."
+	@if [ $$(pip list | grep "norminette" | wc -l) -gt 1 ]; then \
+		echo "[$(RED)PUSH_SWAP$(NC)] Norminette is not installed. Please install Norminette."; \
+		exit 1; \
+	else \
+		if [ $$(norminette | grep "Error:" | wc -l) -gt 0 ]; then \
+			echo "[$(RED)PUSH_SWAP$(NC)] Norminette found errors."; \
+			exit 1; \
+		else \
+			echo "[$(GREEN)PUSH_SWAP$(NC)] Norminette found no errors."; \
+		fi; \
+	fi
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Building $@..."
