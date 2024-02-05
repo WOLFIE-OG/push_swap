@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/02 15:20:41 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/05 14:41:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,14 @@ void			rr(t_stack_node **stack_a, t_stack_node **stack_b);
 void			sa(t_stack_node **stack_a);
 void			sb(t_stack_node **stack_b);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b);
+
+// Commands | Push - ft_ps_push.c
+
+void			pa(t_stack_node **stack_a, t_stack_node **stack_b);
+void			pb(t_stack_node **stack_b, t_stack_node **stack_a);
+
+// Sorters | Sort Three - ft_ps_sort_three.c
+
+void			ft_ps_sort_three(t_stack_node **stack_a);
 
 #endif

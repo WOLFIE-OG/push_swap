@@ -22,7 +22,7 @@ LIBS = -L$(LIBFT_D)/build -lft
 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 
-all: display check_norminette $(NAME)
+all: $(NAME)
 
 display:
 	@echo "$(BLUE)=======================================================$(NC)"
