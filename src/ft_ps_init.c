@@ -6,11 +6,36 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 19:21:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 13:14:52 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+
+static void	print_stack(t_stack **stack)
+{
+	t_list	*list;
+	t_list	*new_node;
+	t_stack	*head;
+	char 	*content;
+
+	head = *stack;
+	list = NULL;
+	new_node = NULL;
+	content = NULL;
+	while (head)
+	{
+		content = malloc(sizeof(int));
+		*content = head->value;
+		new_node = ft_lstnew(content);
+		ft_lstadd_back(&list, new_node);
+		head = head->next;
+	}
+	ft_printf("Stack: %L\n", list);
+	ft_lstclear(&list, free);
+	free(list);
+}
 
 static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
@@ -23,6 +48,7 @@ static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		else
 			ft_ps_sort_stacks(&stack_a, &stack_b);
 	}
+	print_stack(&stack_a);
 	ft_ps_free_stack(&stack_a);
 }
 
@@ -42,10 +68,11 @@ int	main(int arg_n, char **arg_a)
 	if (arg_n == 2)
 		offset = 0;
 	ft_ps_init_stack_a(&stack_a, arg_a + offset);
+	print_stack(&stack_a);
 	push_swap(stack_a, stack_b);
 	if (offset == 0)
 	{
-		ft_free_char_array(arg_a);
+		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);
 	}
 	return (0);
