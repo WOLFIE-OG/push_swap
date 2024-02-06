@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+checker_linux
+bin/visualizer
+bin/imgui.ini
+bin/tests

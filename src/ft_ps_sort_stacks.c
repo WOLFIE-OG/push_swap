@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:42:16 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 19:18:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 14:49:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_ps_move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 		ft_ps_rotate_both(stack_a, stack_b, cheapest_node, 0);
 	ft_ps_push_prep(stack_a, cheapest_node, 1);
 	ft_ps_push_prep(stack_b, cheapest_node->target, 0);
-	pb(stack_b, stack_b);
+	pb(stack_b, stack_a);
 }
 
 static void	ft_ps_move_b_to_a(t_stack **stack_a, t_stack **stack_b)

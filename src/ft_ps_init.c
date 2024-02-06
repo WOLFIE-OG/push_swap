@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 13:14:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 18:22:14 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ static void	print_stack(t_stack **stack)
 		ft_lstadd_back(&list, new_node);
 		head = head->next;
 	}
-	ft_printf("Stack: %L\n", list);
+	ft_printf("Stack (Base 10): 	     %L\n", list);
+	ft_printf("Stack (Base 16): 	     %La\n", list);
+	ft_printf("Stack (Base 16 (Uppercase)): %LA\n", list);
+	ft_printf("Stack (Base 2):              %Lb\n", list);
+	ft_printf("Stack (Base 8):              %Lo\n", list);
 	ft_lstclear(&list, free);
 	free(list);
 }
@@ -48,8 +52,6 @@ static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		else
 			ft_ps_sort_stacks(&stack_a, &stack_b);
 	}
-	print_stack(&stack_a);
-	ft_ps_free_stack(&stack_a);
 }
 
 int	main(int arg_n, char **arg_a)
@@ -64,16 +66,20 @@ int	main(int arg_n, char **arg_a)
 	if (arg_n < 2 && !arg_a[1][0])
 		return (1);
 	else if (arg_n == 2)
-		arg_a = ft_split(arg_a[1], ' ');
+		arg_a = ft_split(*(arg_a + 1), ' ');
 	if (arg_n == 2)
 		offset = 0;
 	ft_ps_init_stack_a(&stack_a, arg_a + offset);
-	print_stack(&stack_a);
+	if (!DEBUG_PRINT)
+		print_stack(&stack_a);
 	push_swap(stack_a, stack_b);
+	if (!DEBUG_PRINT)
+		print_stack(&stack_a);
 	if (offset == 0)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);
 	}
+	ft_ps_free_stack(&stack_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/06 13:04:18 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 17:43:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "colour_codes.h"
 # include "../libft/include/libft.h"
 # ifndef DEBUG_PRINT
-#  define DEBUG_PRINT 0
+#  define DEBUG_PRINT 1
 # endif
 
 // Stack Struct

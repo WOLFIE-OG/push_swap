@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 19:13:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 14:38:11 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 		return ;
 	node->next = NULL;
 	node->value = n;
-	if (!*stack)
+	if (!(*stack))
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -74,7 +74,7 @@ void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n)
 {
 	while (*stack != target)
 	{
-		if (n)
+		if (n == 1)
 		{
 			if (target->is_above_med)
 				ra(stack);

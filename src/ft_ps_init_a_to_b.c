@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 15:48:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/06 14:44:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_ps_current_index(t_stack *node)
 	index = 0;
 	if (!node)
 		return ;
-	med = ft_ps_stack_len(node);
+	med = ft_ps_stack_len(node) / 2;
 	while (node)
 	{
 		node->index = index;
@@ -71,12 +71,12 @@ static void	ft_ps_cost_analysis_a(t_stack *a, t_stack *b)
 	while (a)
 	{
 		a->cost = a->index;
-		if (!a->is_above_med)
-			a->cost = len_a - a->index;
+		if (!(a->is_above_med))
+			a->cost = len_a - (a->index);
 		if (a->target->is_above_med)
 			a->cost += a->target->index;
 		else
-			a->cost += len_b - a->target->index;
+			a->cost += len_b - (a->target->index);
 		a = a->next;
 	}
 }
