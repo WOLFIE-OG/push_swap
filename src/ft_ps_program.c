@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 17:23:18 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 17:45:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,26 @@ void	ft_ps_print_stack(char *name, char *cmd, t_stack **stack)
 {
 	t_list	*list;
 	t_list	*new_node;
-	t_stack	**head;
+	t_stack	*head;
 	int		*content;
 
-	head = stack;
+	head = *stack;
 	list = NULL;
 	new_node = NULL;
 	content = NULL;
-	while (*head)
+	while (head)
 	{
 		content = malloc(sizeof(int));
-		*content = (*head)->value;
+		*content = head->value;
 		new_node = ft_lstnew(content);
 		ft_lstadd_back(&list, new_node);
-		head = &(*head)->next;
+		head = head->next;
 	}
-	ft_printf("Stack		(%s)\n", name);
-	ft_printf("Cost: 		%d\n", (*stack)->cost);
-	ft_printf("IsCheapest: 	%d\n", (*stack)->is_cheapest);
-	ft_printf("Command: 	%s\n", cmd);
+	ft_printf("Stack:		(%s)\nCost:		%d\n", name, (*stack)->cost);
+	ft_printf("Index:		%d\n", (*stack)->index);
+	ft_printf("IsCheapest:	%d\n", (*stack)->is_cheapest);
+	ft_printf("IsAMedian:	%d\n", (*stack)->is_above_med);
+	ft_printf("Command:	%s\n", cmd);
 	ft_printf("Contents:	%L\n\n", list);
 	ft_lstclear(&list, free);
 	free(list);
