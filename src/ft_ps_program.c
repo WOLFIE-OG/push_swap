@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 17:45:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 19:18:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,15 @@ static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	if (!ft_ps_is_sorted(stack_a))
 	{
 		if (ft_ps_stack_len(stack_a) == 2)
+		{
 			sa(&stack_a);
+			free(stack_a);
+		}
 		else if (ft_ps_stack_len(stack_a) == 3)
+		{
 			ft_ps_sort_three(&stack_a);
+			ft_ps_free_stack(&stack_a);
+		}
 		else
 			ft_ps_sort_stacks(&stack_a, &stack_b);
 	}
