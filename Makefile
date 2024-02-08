@@ -14,15 +14,44 @@ OBJ_DIR = obj
 LIBFT_D = libft
 INC_DIR = include
 
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SRCS = $(SRC_DIR)/misc/ft_ps_error_handler.c \
+		$(SRC_DIR)/stacks/ft_ps_init_a_to_b.c \
+		$(SRC_DIR)/stacks/ft_ps_init_b_to_a.c \
+		$(SRC_DIR)/ft_ps_program.c \
+		$(SRC_DIR)/commands/ft_ps_push.c \
+		$(SRC_DIR)/commands/ft_ps_rev_rotate.c \
+		$(SRC_DIR)/commands/ft_ps_rotate.c \
+		$(SRC_DIR)/sorters/ft_ps_sort_stacks.c \
+		$(SRC_DIR)/sorters/ft_ps_sort_three.c \
+		$(SRC_DIR)/stacks/ft_ps_stack_init.c \
+		$(SRC_DIR)/commands/ft_ps_swap.c \
+		$(SRC_DIR)/misc/ft_ps_utils.c
+
+OBJS = $(OBJ_DIR)/ft_ps_error_handler.o \
+		$(OBJ_DIR)/ft_ps_init_a_to_b.o \
+		$(OBJ_DIR)/ft_ps_init_b_to_a.o \
+		$(OBJ_DIR)/ft_ps_program.o \
+		$(OBJ_DIR)/ft_ps_push.o \
+		$(OBJ_DIR)/ft_ps_rev_rotate.o \
+		$(OBJ_DIR)/ft_ps_rotate.o \
+		$(OBJ_DIR)/ft_ps_sort_stacks.o \
+		$(OBJ_DIR)/ft_ps_sort_three.o \
+		$(OBJ_DIR)/ft_ps_stack_init.o \
+		$(OBJ_DIR)/ft_ps_swap.o \
+		$(OBJ_DIR)/ft_ps_utils.o
 
 LIBFT = $(LIBFT_D)/build/libft.a
 LIBS = -L$(LIBFT_D)/build -lft
 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 
-all: $(NAME)
+all: dir $(NAME)
+
+dir:
+	@if [ ! -d "obj" ]; then \
+		echo "[$(GREEN)PUSH_SWAP$(NC)] Creating obj directory..."; \
+		mkdir -p obj; \
+	fi
 
 check_norminette:
 	@echo "[$(BLUE)PUSH_SWAP$(NC)] Checking for errors with Norminette..."
@@ -43,7 +72,10 @@ $(NAME): $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h
-	@mkdir -p $(OBJ_DIR)
+	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/push_swap.h | $(OBJ_DIR)
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 

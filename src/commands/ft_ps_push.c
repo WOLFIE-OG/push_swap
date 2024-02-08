@@ -6,11 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:22:44 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 18:00:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 15:31:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	ft_ps_push(t_stack **stack_dst, t_stack **stack_src)
 {

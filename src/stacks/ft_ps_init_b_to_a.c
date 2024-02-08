@@ -6,11 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 18:28:05 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 15:36:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	ft_ps_set_target_b(t_stack *a, t_stack *b)
 {

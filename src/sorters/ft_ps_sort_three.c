@@ -6,11 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:23:59 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/05 15:45:23 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 15:31:28 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	ft_ps_sort_three(t_stack **stack_a)
 {
