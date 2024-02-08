@@ -6,37 +6,36 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 15:35:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 17:23:18 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
-static void	print_stack(t_stack **stack)
+void	ft_ps_print_stack(char *name, char *cmd, t_stack **stack)
 {
 	t_list	*list;
 	t_list	*new_node;
-	t_stack	*head;
-	char 	*content;
+	t_stack	**head;
+	int		*content;
 
-	head = *stack;
+	head = stack;
 	list = NULL;
 	new_node = NULL;
 	content = NULL;
-	while (head)
+	while (*head)
 	{
 		content = malloc(sizeof(int));
-		*content = head->value;
+		*content = (*head)->value;
 		new_node = ft_lstnew(content);
 		ft_lstadd_back(&list, new_node);
-		head = head->next;
+		head = &(*head)->next;
 	}
-	ft_printf("Stack (Base 10): 	     %L\n", list);
-	ft_printf("Stack (Base 16): 	     %La\n", list);
-	ft_printf("Stack (Base 16 (Uppercase)): %LA\n", list);
-	ft_printf("Stack (Base 2):              %Lb\n", list);
-	ft_printf("Stack (Base 8):              %Lo\n", list);
+	ft_printf("Stack		(%s)\n", name);
+	ft_printf("Cost: 		%d\n", (*stack)->cost);
+	ft_printf("IsCheapest: 	%d\n", (*stack)->is_cheapest);
+	ft_printf("Command: 	%s\n", cmd);
+	ft_printf("Contents:	%L\n\n", list);
 	ft_lstclear(&list, free);
 	free(list);
 }
@@ -70,11 +69,7 @@ int	main(int arg_n, char **arg_a)
 	if (arg_n == 2)
 		offset = 0;
 	ft_ps_init_stack_a(&stack_a, arg_a + offset);
-	if (!DEBUG_PRINT)
-		print_stack(&stack_a);
 	push_swap(stack_a, stack_b);
-	if (!DEBUG_PRINT)
-		print_stack(&stack_a);
 	if (offset == 0)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
