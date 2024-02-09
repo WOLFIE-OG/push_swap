@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 19:06:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 23:58:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "colour_codes.h"
 # include "../libft/include/libft.h"
 # ifndef DEBUG_PRINT
-#  define DEBUG_PRINT 0
+#  define DEBUG_PRINT 1
 # endif
 
 // Stack Struct
@@ -56,11 +56,11 @@ t_stack	*ft_ps_get_max(t_stack *node);
 int		ft_ps_error_syntax(char *str);
 int		ft_ps_error_duplicate(t_stack *a, int n);
 void	ft_ps_free_stack(t_stack **stack);
-void	ft_ps_free_errors(t_stack **a);
+void	ft_ps_free_errors(t_stack **a, char **arg_a, int using_split);
 
 // Stack Init - ft_ps_stack_init.c
 
-void	ft_ps_init_stack_a(t_stack **stack, char **arg_a);
+void	ft_ps_init_stack_a(t_stack **stack, char **arg_a, int using_split);
 t_stack	*ft_ps_get_cheapest(t_stack *node);
 void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n);
 

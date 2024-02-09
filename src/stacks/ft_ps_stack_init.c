@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 19:08:27 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/08 23:54:14 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,23 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 	}
 }
 
-void	ft_ps_init_stack_a(t_stack **stack, char **arg_a)
+void	ft_ps_init_stack_a(t_stack **stack, char **arg_a, int using_split)
 {
 	long	n;
-	char	**head;
+	int		i;
 
-	head = arg_a;
-	while (*arg_a)
+	i = 0;
+	while (arg_a[i])
 	{
-		if (ft_ps_error_syntax(*arg_a))
-			ft_ps_free_errors(stack);
-		n = ft_atol(*arg_a);
+		if (ft_ps_error_syntax(arg_a[i]))
+			ft_ps_free_errors(stack, arg_a, using_split);
+		n = ft_atol(arg_a[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			ft_ps_free_errors(stack);
+			ft_ps_free_errors(stack, arg_a, using_split);
 		if (ft_ps_error_duplicate(*stack, (int)n))
-		{
-			ft_free_array(head, ft_strarraylen(head));
-			free(head);
-			ft_ps_free_errors(stack);
-		}
+			ft_ps_free_errors(stack, arg_a, using_split);
 		ft_ps_append_node(stack, (int)n);
-		arg_a++;
+		i++;
 	}
 }
 
