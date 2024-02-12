@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 15:36:30 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 14:55:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_ps_current_index(t_stack *node)
 	{
 		node->index = index;
 		if (index <= med)
-			node->is_above_med = true;
+			node->is_above_med = 1;
 		else
-			node->is_above_med = false;
+			node->is_above_med = 0;
 		node = node->next;
 		index++;
 	}
@@ -98,7 +98,7 @@ void	ft_ps_set_cheapest(t_stack *node)
 		}
 		node = node->next;
 	}
-	cheapest_n->is_cheapest = true;
+	cheapest_n->is_cheapest = 1;
 }
 
 void	ft_ps_init_nodes_a(t_stack *a, t_stack *b)

@@ -12,6 +12,13 @@
 		"tuple": "c",
 		"type_traits": "c",
 		"utility": "c",
-		"random": "c"
+		"random": "c",
+		"*.tcc": "c",
+		"optional": "c",
+		"ratio": "c",
+		"regex": "c",
+		"variant": "c",
+		"chrono": "c",
+		"compare": "c"
 	}
 }

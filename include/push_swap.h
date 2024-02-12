@@ -6,17 +6,16 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 13:07:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 15:04:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdbool.h>
 # include "colour_codes.h"
 # include "../libft/include/libft.h"
 # ifndef DEBUG_PRINT
-#  define DEBUG_PRINT 1
+#  define DEBUG_PRINT 0
 # endif
 
 // Stack Struct
@@ -26,8 +25,8 @@ typedef struct s_stack
 	int					value;
 	size_t				index;
 	int					cost;
-	bool				is_above_med;
-	bool				is_cheapest;
+	int					is_above_med;
+	int					is_cheapest;
 	struct s_stack		*target;
 	struct s_stack		*next;
 	struct s_stack		*prev;
@@ -47,7 +46,7 @@ void	ft_ps_init_nodes_b(t_stack *a, t_stack *b);
 
 size_t	ft_ps_stack_len(t_stack *node);
 t_stack	*ft_ps_get_last(t_stack *node);
-bool	ft_ps_is_sorted(t_stack *node);
+int		ft_ps_is_sorted(t_stack *node);
 t_stack	*ft_ps_get_min(t_stack *node);
 t_stack	*ft_ps_get_max(t_stack *node);
 
