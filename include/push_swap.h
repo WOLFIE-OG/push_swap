@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 11:34:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 13:07:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ void	ft_ps_sort_three(t_stack **stack_a);
 // Sorters | Sort Stacks - ft_ps_sort_stacks.c
 
 void	ft_ps_sort_stacks(t_stack **stack_a, t_stack **stack_b);
-
 
 // Misc
 
