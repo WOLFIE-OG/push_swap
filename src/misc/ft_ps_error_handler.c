@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 23:53:27 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 16:51:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int	ft_ps_error_syntax(char *str)
 	return (0);
 }
 
-int	ft_ps_error_duplicate(t_stack *a, int n)
+int	ft_ps_error_duplicate(t_stack *stack_a, int n)
 {
-	if (!a)
+	if (!stack_a)
 		return (0);
-	while (a)
+	while (stack_a)
 	{
-		if (a->value == n)
+		if (stack_a->value == n)
 			return (1);
-		a = a->next;
+		stack_a = stack_a->next;
 	}
 	return (0);
 }
@@ -54,14 +54,14 @@ void	ft_ps_free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	ft_ps_free_errors(t_stack **a, char **arg_a, int using_split)
+void	ft_ps_free_errors(t_stack **stack_a, char **arg_a, int using_split)
 {
 	if (!using_split)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);
 	}
-	ft_ps_free_stack(a);
+	ft_ps_free_stack(stack_a);
 	ft_printf(BRED"Error!\n"RESET);
 	exit(EXIT_FAILURE);
 }

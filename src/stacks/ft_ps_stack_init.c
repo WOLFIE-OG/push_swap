@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 16:02:59 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:02:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_ps_init_stack_a(t_stack **stack, char **arg_a, int using_split)
 		if (ft_ps_error_syntax(arg_a[i]))
 			ft_ps_free_errors(stack, arg_a, using_split);
 		n = ft_atol(arg_a[i]);
-		if (ft_check_overflow(&n, sizeof(n)))
+		if (n > LONG_MAX || n < LONG_MIN)
 			ft_ps_free_errors(stack, arg_a, using_split);
 		if (ft_ps_error_duplicate(*stack, (int)n))
 			ft_ps_free_errors(stack, arg_a, using_split);
