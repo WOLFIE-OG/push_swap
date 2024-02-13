@@ -55,3 +55,4 @@ bin/visualizer
 bin/imgui.ini
 bin/tests
 push_swap
+push_swap_visualizer
