@@ -45,7 +45,7 @@ LIBS = -L$(LIBFT_D)/build -lft
 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_D)
 
-all: dir $(NAME)
+all: $(LIBFT) dir $(NAME)
 
 dir:
 	@if [ ! -d "obj" ]; then \
@@ -67,7 +67,7 @@ check_norminette:
 		fi; \
 	fi
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(OBJS)
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
