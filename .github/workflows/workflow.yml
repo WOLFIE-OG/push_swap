@@ -1,0 +1,45 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Get submodules
+      run: git submodule update --init --recursive
+
+    - name: Make program
+      run: make
+
+    - name: Re-make program
+      run: make re
+
+    - name: View Contents of Libft
+      run: nm -C libft/build/libft.a
+    
+    - name: Test - 10 (No Arg)
+      run: ./tests/test_10.sh
+
+    - name: Test - 10
+      run: ./tests/test_10_1.sh
+
+    - name: Test - 50 (No Arg)
+      run: ./tests/test_50.sh
+
+    - name: Test - 50
+      run: ./tests/test_50_1.sh
+
+    - name: Test - 100 (No Arg)
+      run: ./tests/test_100.sh
+
+    - name: Test - 100
+      run: ./tests/test_100_1.sh
