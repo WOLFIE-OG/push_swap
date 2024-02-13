@@ -30,16 +30,37 @@ jobs:
       run: ./tests/test_10.sh
 
     - name: Test - 10
-      run: ./tests/test_10_1.sh
+      run: ./tests/test_10_1_arg.sh
 
     - name: Test - 50 (No Arg)
       run: ./tests/test_50.sh
 
     - name: Test - 50
-      run: ./tests/test_50_1.sh
+      run: ./tests/test_50_1_arg.sh
 
     - name: Test - 100 (No Arg)
       run: ./tests/test_100.sh
 
     - name: Test - 100
-      run: ./tests/test_100_1.sh
+      run: ./tests/test_100_1_arg.sh
+
+    - name: Re-Make program with debug
+      run: make re CFLAGS+=-DDEBUG_PRINT=1
+
+    - name: Test - 10 (No Arg)
+      run: ./tests/test_10.sh
+
+    - name: Test - 10
+      run: ./tests/test_10_1_arg.sh
+
+    - name: Test - 50 (No Arg)
+      run: ./tests/test_50.sh
+
+    - name: Test - 50
+      run: ./tests/test_50_1_arg.sh
+
+    - name: Test - 100 (No Arg)
+      run: ./tests/test_100.sh
+
+    - name: Test - 100
+      run: ./tests/test_100_1_arg.sh
