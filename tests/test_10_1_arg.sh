@@ -1,1 +1,1 @@
-./push_swap "7 4 8 5 2 10 3 9 6 1"
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./push_swap "7 4 8 5 2 10 3 9 6 1"
