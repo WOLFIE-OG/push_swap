@@ -4,13 +4,12 @@
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
-		va
 		{
 			"name": "(gdb) Test Push Swap",
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/push_swap",
-			"args": ["23", "15", "13"],
+			"args": ["5 995 5"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],

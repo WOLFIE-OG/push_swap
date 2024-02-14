@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:42:16 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 16:30:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/14 17:22:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_ps_sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_len_a;
 
-	stack_len_a = ft_ps_stack_len(*stack_a);
+	stack_len_a = ft_ps_get_len(*stack_a);
 	if (stack_len_a-- > 3 && !ft_ps_is_sorted(*stack_a))
 		pb(stack_b, stack_a);
 	if (stack_len_a-- > 3 && !ft_ps_is_sorted(*stack_a))

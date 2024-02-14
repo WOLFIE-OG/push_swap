@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 18:25:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/14 18:19:34 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,24 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 	}
 }
 
-void	ft_ps_init_stack_a(t_stack **stack, char **arg_a, int using_split)
+void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
 {
 	long	n;
+	char	**tmp;
 
-	while (*arg_a)
+	tmp = arg_a;
+	while (*tmp)
 	{
-		if (ft_ps_error_syntax(*arg_a))
+		if (ft_ps_error_syntax(*tmp))
 			ft_ps_free_errors(stack, arg_a, using_split);
-		n = ft_atol(*arg_a);
+		n = ft_atol(*tmp);
 		if (n > LONG_MAX || n < LONG_MIN)
 			ft_ps_free_errors(stack, arg_a, using_split);
 		if (ft_ps_error_duplicate(*stack, (int)n))
 			ft_ps_free_errors(stack, arg_a, using_split);
 		ft_ps_append_node(stack, (int)n);
-		arg_a++;
+		tmp++;
 	}
-}
-
-t_stack	*ft_ps_get_cheapest(t_stack *node)
-{
-	while (node)
-	{
-		if (node->is_cheapest)
-			return (node);
-		node = node->next;
-	}
-	return (NULL);
 }
 
 void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n)

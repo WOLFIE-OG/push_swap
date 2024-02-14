@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 11:53:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/14 17:54:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!ft_ps_is_sorted(stack_a))
 	{
-		if (ft_ps_stack_len(stack_a) == 2)
+		if (ft_ps_get_len(stack_a) == 2)
 			sa(&stack_a);
-		else if (ft_ps_stack_len(stack_a) == 3)
+		else if (ft_ps_get_len(stack_a) == 3)
 			ft_ps_sort_three(&stack_a);
 		else
 			ft_ps_sort_stacks(&stack_a, &stack_b);
@@ -74,12 +74,13 @@ int	main(int arg_n, char **arg_a)
 	if (arg_n < 2 && !arg_a[1])
 		return (1);
 	else if (arg_n == 2)
+	{
 		arg_a = ft_split(*(arg_a + 1), ' ');
-	if (arg_n == 2)
 		using_split = 0;
-	ft_ps_init_stack_a(&stack_a, arg_a + using_split, using_split);
+	}
+	ft_ps_init_stack(&stack_a, arg_a + using_split, using_split);
 	push_swap(stack_a, stack_b);
-	if (using_split == 0)
+	if (!using_split)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);

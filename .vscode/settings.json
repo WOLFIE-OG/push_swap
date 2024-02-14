@@ -19,6 +19,9 @@
 		"regex": "c",
 		"variant": "c",
 		"chrono": "c",
-		"compare": "c"
+		"compare": "c",
+		"limits": "c",
+		"algorithm": "c",
+		"string_view": "c"
 	}
 }

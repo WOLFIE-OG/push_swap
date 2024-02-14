@@ -1,53 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ps_utils.c                                      :+:      :+:    :+:   */
+/*   ft_ps_get_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 14:55:56 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/14 17:08:45 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/14 17:29:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-size_t	ft_ps_stack_len(t_stack *node)
-{
-	size_t	c;
-
-	if (!node)
-		return (0);
-	c = 0;
-	while (node)
-	{
-		node = node->next;
-		c++;
-	}
-	return (c);
-}
-
-t_stack	*ft_ps_get_last(t_stack *node)
-{
-	if (!node)
-		return (NULL);
-	while (node->next)
-		node = node->next;
-	return (node);
-}
-
-int	ft_ps_is_sorted(t_stack *node)
-{
-	if (!node)
-		return (0);
-	while (node->next)
-	{
-		if (node->value > node->next->value)
-			return (0);
-		node = node->next;
-	}
-	return (1);
-}
 
 t_stack	*ft_ps_get_min(t_stack *node)
 {
@@ -87,4 +50,39 @@ t_stack	*ft_ps_get_max(t_stack *node)
 		node = node->next;
 	}
 	return (max_node);
+}
+
+t_stack	*ft_ps_get_last(t_stack *node)
+{
+	if (!node)
+		return (NULL);
+	while (node->next)
+		node = node->next;
+	return (node);
+}
+
+size_t	ft_ps_get_len(t_stack *node)
+{
+	size_t	c;
+
+	if (!node)
+		return (0);
+	c = 0;
+	while (node)
+	{
+		node = node->next;
+		c++;
+	}
+	return (c);
+}
+
+t_stack	*ft_ps_get_cheapest(t_stack *node)
+{
+	while (node)
+	{
+		if (node->is_cheapest)
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
 }
