@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/02/14 17:28:08 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/14 22:06:41 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ_DIR = obj
 LIBFT_D = libft
 INC_DIR = include
 
-SRCS	= $(SRC_DIR)/commands/ft_ps_push.c \
+SRCS	= 	$(SRC_DIR)/commands/ft_ps_push.c \
 			$(SRC_DIR)/commands/ft_ps_rev_rotate.c \
 			$(SRC_DIR)/commands/ft_ps_rotate.c \
 			$(SRC_DIR)/commands/ft_ps_swap.c \
@@ -40,7 +40,7 @@ SRCS	= $(SRC_DIR)/commands/ft_ps_push.c \
 			$(SRC_DIR)/stacks/ft_ps_stack_init.c \
 			$(SRC_DIR)/ft_ps_program.c 
 
-OBJS 	= $(OBJ_DIR)/ft_ps_push.o \
+OBJS 	= 	$(OBJ_DIR)/ft_ps_push.o \
 			$(OBJ_DIR)/ft_ps_rev_rotate.o \
 			$(OBJ_DIR)/ft_ps_rotate.o \
 			$(OBJ_DIR)/ft_ps_swap.o \
