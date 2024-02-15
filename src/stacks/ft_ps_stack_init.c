@@ -6,12 +6,12 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:19:34 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/15 16:09:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
+#include <stdio.h>
 static void	ft_ps_append_node(t_stack **stack, int n)
 {
 	t_stack	*node;
@@ -49,10 +49,10 @@ void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
 	tmp = arg_a;
 	while (*tmp)
 	{
-		if (ft_ps_error_syntax(*tmp))
+		if (!ft_ischeck_str(*tmp, ft_ismath))
 			ft_ps_free_errors(stack, arg_a, using_split);
 		n = ft_atol(*tmp);
-		if (n > LONG_MAX || n < LONG_MIN)
+		if (n < INT_MIN || n > INT_MAX)
 			ft_ps_free_errors(stack, arg_a, using_split);
 		if (ft_ps_error_duplicate(*stack, (int)n))
 			ft_ps_free_errors(stack, arg_a, using_split);

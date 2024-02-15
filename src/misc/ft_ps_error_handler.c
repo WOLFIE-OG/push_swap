@@ -6,22 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 18:25:55 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/15 13:41:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-int	ft_ps_error_syntax(char *str)
-{
-	if (!(*str == '+' || *str == '-' || ft_isdigit(*str)))
-		return (1);
-	if ((*str == '+' || *str == '-') && !ft_isdigit(str[1]))
-		return (1);
-	if (!ft_ischeck_str(str, ft_isdigit))
-		return (1);
-	return (0);
-}
 
 int	ft_ps_error_duplicate(t_stack *stack_a, int n)
 {

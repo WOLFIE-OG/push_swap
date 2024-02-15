@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 17:30:06 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/15 13:41:22 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	ft_ps_current_index(t_stack *node);
 
 // Error Handler - ft_ps_error_handler.c
 
-int		ft_ps_error_syntax(char *str);
 int		ft_ps_error_duplicate(t_stack *stack_a, int n);
 void	ft_ps_free_stack(t_stack **stack);
 void	ft_ps_free_errors(t_stack **stack_a, char **arg_a, int using_split);
