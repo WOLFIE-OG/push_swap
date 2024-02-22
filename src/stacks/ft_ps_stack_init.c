@@ -6,12 +6,12 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/15 16:09:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:00:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-#include <stdio.h>
+
 static void	ft_ps_append_node(t_stack **stack, int n)
 {
 	t_stack	*node;
