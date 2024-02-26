@@ -55,3 +55,4 @@ checker_linux
 imgui.ini
 push_swap
 visualizer
+.vscode/
