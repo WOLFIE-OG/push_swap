@@ -2,3 +2,6 @@
 	path = libft
 	url = https://github.com/WOLFIE-OG/libft
 	branch = dev
+[submodule "visualiser"]
+	path = visualiser
+	url = https://github.com/o-reo/push_swap_visualizer
