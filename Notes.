@@ -1,0 +1,6 @@
+1. Get the args.
+2. Init stack a and check for non maths related chars and if the length of the arg is empty.
+3. Convert the arg with ft_atol to a long and check for duplicates or overflows.
+4. Append the node and move forward.
+5. Check if stack is sorted already if not then check if the length of the stack is 2, if yes then we swap the first 2 elements of a meaning it will be sorted.
+	If its 3 then we sort three.

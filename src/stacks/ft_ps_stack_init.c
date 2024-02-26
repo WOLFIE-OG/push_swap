@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 15:00:16 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 15:22:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,11 @@ void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
 	tmp = arg_a;
 	while (*tmp)
 	{
-		if (!ft_ischeck_str(*tmp, ft_ismath))
+		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp))
 			ft_ps_free_errors(stack, arg_a, using_split);
 		n = ft_atol(*tmp);
-		if (n < INT_MIN || n > INT_MAX)
-			ft_ps_free_errors(stack, arg_a, using_split);
-		if (ft_ps_error_duplicate(*stack, (int)n))
+		if ((n < INT_MIN || n > INT_MAX)
+			|| ft_ps_error_duplicate(*stack, (int)n))
 			ft_ps_free_errors(stack, arg_a, using_split);
 		ft_ps_append_node(stack, (int)n);
 		tmp++;
