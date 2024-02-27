@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/02/27 16:36:46 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/27 16:44:37 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ check_norminette:
 		echo "[$(RED)PUSH_SWAP$(NC)] Norminette is not installed. Please install Norminette."; \
 		exit 1; \
 	else \
-		if [ $$(norminette | grep "Error:" | wc -l) -gt 0 ]; then \
+		if [ $$(norminette src include | grep "Error:" | wc -l) -gt 0 ]; then \
 			echo "[$(RED)PUSH_SWAP$(NC)] Norminette found errors."; \
 			exit 1; \
 		else \
@@ -109,4 +109,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+norm: check_norminette all
+
+.PHONY: all clean fclean re norm
