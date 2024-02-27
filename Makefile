@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/02/22 15:20:07 by otodd            ###   ########.fr        #
+#    Updated: 2024/02/27 16:36:46 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ LIBS 	= -L$(LIBFT_D)/build -lft
 
 HEADERS	= -I$(INC_DIR) -I$(LIBFT_D)
 
-all: $(LIBFT) dir $(NAME)
+all: $(LIBFT) $(NAME)
 
 dir:
 	@if [ ! -d "obj" ]; then \
@@ -86,11 +86,11 @@ $(NAME): $(OBJS)
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h | dir
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/push_swap.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/push_swap.h | dir
 	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
