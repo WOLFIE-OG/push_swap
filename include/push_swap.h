@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/15 13:41:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 20:19:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ typedef struct s_stack
 	struct s_stack		*next;
 	struct s_stack		*prev;
 }	t_stack;
+
+// Root Struct
+
+typedef struct s_stacks
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		us;
+}	t_stacks;
 
 // Commands | Push - ft_ps_push.c
 
@@ -63,8 +72,8 @@ void	ft_ps_current_index(t_stack *node);
 // Error Handler - ft_ps_error_handler.c
 
 int		ft_ps_error_duplicate(t_stack *stack_a, int n);
-void	ft_ps_free_stack(t_stack **stack);
-void	ft_ps_free_errors(t_stack **stack_a, char **arg_a, int using_split);
+void	ft_ps_free_stack(t_stacks *stacks);
+void	ft_ps_free_errors(t_stacks *stacks, char **arg_a);
 
 // Get Utils - ft_ps_get_utils.c
 
@@ -80,16 +89,16 @@ int		ft_ps_is_sorted(t_stack *node);
 
 // Sorters | Sort Stacks - ft_ps_sort_stacks.c
 
-void	ft_ps_sort_stacks(t_stack **stack_a, t_stack **stack_b);
+void	ft_ps_sort_stacks(t_stacks *stacks);
 
 // Sorters | Sort Three - ft_ps_sort_three.c
 
-void	ft_ps_sort_three(t_stack **stack_a);
+void	ft_ps_sort_three(t_stacks *stacks);
 
 // Stack Init - ft_ps_stack_init.c
 
-void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split);
-void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n);
+void	ft_ps_init_stack(t_stacks *stacks, char **arg_a);
+void	ft_ps_push_prep(t_stack *stack, t_stack *target, int n);
 
 // Init A -> B - ft_ps_init_a_to_b.c
 

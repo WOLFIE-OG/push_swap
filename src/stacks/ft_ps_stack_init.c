@@ -6,18 +6,18 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 15:22:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 20:24:35 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	ft_ps_append_node(t_stack **stack, int n)
+static void	ft_ps_append_node(t_stacks *stacks, int n)
 {
 	t_stack	*node;
 	t_stack	*node_last;
 
-	if (!stack)
+	if (!stacks)
 		return ;
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -28,20 +28,20 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 	node->index = 0;
 	node->is_above_med = 0;
 	node->cost = 0;
-	if (!(*stack))
+	if (!stacks->a)
 	{
-		*stack = node;
+		stacks->a = node;
 		node->prev = NULL;
 	}
 	else
 	{
-		node_last = ft_ps_get_last(*stack);
+		node_last = ft_ps_get_last(stacks->a);
 		node_last->next = node;
 		node->prev = node_last;
 	}
 }
 
-void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
+void	ft_ps_init_stack(t_stacks *stacks, char **arg_a)
 {
 	long	n;
 	char	**tmp;
@@ -50,29 +50,29 @@ void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
 	while (*tmp)
 	{
 		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp))
-			ft_ps_free_errors(stack, arg_a, using_split);
+			ft_ps_free_errors(stacks, arg_a);
 		n = ft_atol(*tmp);
 		if ((n < INT_MIN || n > INT_MAX)
-			|| ft_ps_error_duplicate(*stack, (int)n))
-			ft_ps_free_errors(stack, arg_a, using_split);
-		ft_ps_append_node(stack, (int)n);
+			|| ft_ps_error_duplicate(stacks->a, (int)n))
+			ft_ps_free_errors(stacks, arg_a);
+		ft_ps_append_node(stacks, (int)n);
 		tmp++;
 	}
 }
 
-void	ft_ps_push_prep(t_stack **stack, t_stack *target, int n)
+void	ft_ps_push_prep(t_stack *stack, t_stack *target, int n)
 {
-	while (*stack != target)
+	while (stack != target)
 	{
 		if (n)
 			if (target->is_above_med)
-				ra(stack);
+				ra(&stack);
 		else
-			rra(stack);
+			rra(&stack);
 		else
 			if (target->is_above_med)
-				rb(stack);
+				rb(&stack);
 		else
-			rrb(stack);
+			rrb(&stack);
 	}
 }

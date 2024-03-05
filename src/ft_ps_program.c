@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 17:54:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 20:17:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,43 +47,43 @@ void	ft_ps_print_stack(char *name, char *cmd, t_stack **stack)
 	free(list);
 }
 
-static void	push_swap(t_stack *stack_a, t_stack *stack_b)
+static void	push_swap(t_stacks *stacks)
 {
-	if (!ft_ps_is_sorted(stack_a))
+	if (!ft_ps_is_sorted(stacks->a))
 	{
-		if (ft_ps_get_len(stack_a) == 2)
-			sa(&stack_a);
-		else if (ft_ps_get_len(stack_a) == 3)
-			ft_ps_sort_three(&stack_a);
+		if (ft_ps_get_len(stacks->b) == 2)
+			sa(&stacks->a);
+		else if (ft_ps_get_len(stacks->a) == 3)
+			ft_ps_sort_three(stacks);
 		else
-			ft_ps_sort_stacks(&stack_a, &stack_b);
+			ft_ps_sort_stacks(stacks);
 	}
-	ft_ps_free_stack(&stack_a);
-	free(stack_a);
+	ft_ps_free_stack(stacks);
+	free(stacks->a);
 }
 
 int	main(int arg_n, char **arg_a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		using_split;
+	t_stacks	*stacks;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	using_split = 1;
+	stacks = malloc(sizeof(t_stacks));
+	stacks->a = NULL;
+	stacks->b = NULL;
+	stacks->us = 1;
 	if (arg_n < 2 && !arg_a[1])
 		return (1);
 	else if (arg_n == 2)
 	{
 		arg_a = ft_split(*(arg_a + 1), ' ');
-		using_split = 0;
+		stacks->us = 0;
 	}
-	ft_ps_init_stack(&stack_a, arg_a + using_split, using_split);
-	push_swap(stack_a, stack_b);
-	if (!using_split)
+	ft_ps_init_stack(stacks, arg_a + stacks->us);
+	push_swap(stacks);
+	if (!stacks->us)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);
 	}
+	free(stacks);
 	return (0);
 }
