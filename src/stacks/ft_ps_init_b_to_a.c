@@ -6,43 +6,44 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:54:28 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/12 17:02:28 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 19:05:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	ft_ps_set_target_b(t_stack *stack_a, t_stack *stack_b)
+static void	ft_ps_set_target_b(t_ctx *ctx)
 {
 	t_stack	*current_a;
 	t_stack	*target_node;
-	long	best_match_index;
+	t_stack	*head;
 
-	while (stack_b)
+	head = ctx->b;
+	while (head)
 	{
-		best_match_index = LONG_MAX;
-		current_a = stack_a;
+		head->bmi = LONG_MAX;
+		current_a = ctx->a;
 		while (current_a)
 		{
-			if (current_a->value > stack_b->value
-				&& current_a->value < best_match_index)
+			if (current_a->value > head->value
+				&& current_a->value < head->bmi)
 			{
-				best_match_index = current_a->value;
+				head->bmi = current_a->value;
 				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (best_match_index == LONG_MAX)
-			stack_b->target = ft_ps_get_min(stack_a);
+		if (head->bmi == LONG_MAX)
+			head->target = ft_ps_get_min(ctx->a);
 		else
-			stack_b->target = target_node;
-		stack_b = stack_b->next;
+			head->target = target_node;
+		head = head->next;
 	}
 }
 
-void	ft_ps_init_nodes_b(t_stack *stack_a, t_stack *stack_b)
+void	ft_ps_init_nodes_b(t_ctx *ctx)
 {
-	ft_ps_current_index(stack_a);
-	ft_ps_current_index(stack_b);
-	ft_ps_set_target_b(stack_a, stack_b);
+	ft_ps_current_index(ctx->a);
+	ft_ps_current_index(ctx->b);
+	ft_ps_set_target_b(ctx);
 }

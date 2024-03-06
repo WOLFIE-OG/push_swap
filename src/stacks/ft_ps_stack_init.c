@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 15:22:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 19:06:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 		return ;
 	node->next = NULL;
 	node->value = n;
-	node->is_cheapest = 0;
+	node->is_cheapest = false;
 	node->index = 0;
-	node->is_above_med = 0;
+	node->is_above_med = false;
 	node->cost = 0;
 	if (!(*stack))
 	{
@@ -41,21 +41,23 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 	}
 }
 
-void	ft_ps_init_stack(t_stack **stack, char **arg_a, int using_split)
+void	ft_ps_init_stack(t_ctx *ctx)
 {
 	long	n;
 	char	**tmp;
 
-	tmp = arg_a;
+	tmp = ctx->arg_a;
+	ctx->a = NULL;
+	ctx->b = NULL;
 	while (*tmp)
 	{
 		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp))
-			ft_ps_free_errors(stack, arg_a, using_split);
+			ft_ps_free_errors(ctx);
 		n = ft_atol(*tmp);
 		if ((n < INT_MIN || n > INT_MAX)
-			|| ft_ps_error_duplicate(*stack, (int)n))
-			ft_ps_free_errors(stack, arg_a, using_split);
-		ft_ps_append_node(stack, (int)n);
+			|| ft_ps_error_duplicate(ctx, (int)n))
+			ft_ps_free_errors(ctx);
+		ft_ps_append_node(&ctx->a, (int)n);
 		tmp++;
 	}
 }

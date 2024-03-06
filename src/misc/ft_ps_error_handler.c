@@ -6,33 +6,36 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/15 13:41:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 19:04:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	ft_ps_error_duplicate(t_stack *stack_a, int n)
+bool	ft_ps_error_duplicate(t_ctx *ctx, int n)
 {
-	if (!stack_a)
+	t_stack	*head;
+
+	head = ctx->a;
+	if (!head)
 		return (0);
-	while (stack_a)
+	while (head)
 	{
-		if (stack_a->value == n)
-			return (1);
-		stack_a = stack_a->next;
+		if (head->value == n)
+			return (true);
+		head = head->next;
 	}
-	return (0);
+	return (false);
 }
 
-void	ft_ps_free_stack(t_stack **stack)
+void	ft_ps_free_stack(t_ctx *ctx)
 {
 	t_stack	*tmp;
 	t_stack	*current;
 
-	if (!stack)
+	if (!ctx->a)
 		return ;
-	current = *stack;
+	current = ctx->a;
 	while (current)
 	{
 		tmp = current->next;
@@ -40,17 +43,18 @@ void	ft_ps_free_stack(t_stack **stack)
 		free(current);
 		current = tmp;
 	}
-	*stack = NULL;
+	ctx->a = NULL;
 }
 
-void	ft_ps_free_errors(t_stack **stack_a, char **arg_a, int using_split)
+void	ft_ps_free_errors(t_ctx *ctx)
 {
-	if (!using_split)
+	if (!ctx->us)
 	{
-		ft_free_array(arg_a, ft_strarraylen(arg_a));
-		free(arg_a);
+		ft_free_array(ctx->arg_a, ft_strarraylen(ctx->arg_a));
+		free(ctx->arg_a);
 	}
-	ft_ps_free_stack(stack_a);
+	ft_ps_free_stack(ctx);
+	free(ctx);
 	ft_printf(BRED"Error!\n"RESET);
 	exit(EXIT_FAILURE);
 }

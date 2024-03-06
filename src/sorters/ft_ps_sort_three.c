@@ -6,21 +6,21 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:23:59 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 15:31:28 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 17:14:44 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	ft_ps_sort_three(t_stack **stack_a)
+void	ft_ps_sort_three(t_ctx *ctx)
 {
 	t_stack	*b_node;
 
-	b_node = ft_ps_get_max(*stack_a);
-	if (b_node == *stack_a)
-		ra(stack_a);
-	else if ((*stack_a)->next == b_node)
-		rra(stack_a);
-	if ((*stack_a)->value > (*stack_a)->next->value)
-		sa(stack_a);
+	b_node = ft_ps_get_max(ctx->a);
+	if (b_node == ctx->a)
+		ra(&ctx->a);
+	else if (ctx->a->next == b_node)
+		rra(&ctx->a);
+	if (ctx->a->value > ctx->a->next->value)
+		sa(&ctx->a);
 }

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 17:54:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 19:07:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,43 +47,46 @@ void	ft_ps_print_stack(char *name, char *cmd, t_stack **stack)
 	free(list);
 }
 
-static void	push_swap(t_stack *stack_a, t_stack *stack_b)
+static void	push_swap(t_ctx *ctx)
 {
-	if (!ft_ps_is_sorted(stack_a))
+	if (!ft_ps_is_sorted(ctx->a))
 	{
-		if (ft_ps_get_len(stack_a) == 2)
-			sa(&stack_a);
-		else if (ft_ps_get_len(stack_a) == 3)
-			ft_ps_sort_three(&stack_a);
+		if (ft_ps_get_len(ctx->a) == 2)
+			sa(&ctx->a);
+		else if (ft_ps_get_len(ctx->a) == 3)
+			ft_ps_sort_three(ctx);
 		else
-			ft_ps_sort_stacks(&stack_a, &stack_b);
+			ft_ps_sort_stacks(ctx);
 	}
-	ft_ps_free_stack(&stack_a);
-	free(stack_a);
+	ft_ps_free_stack(ctx);
+	free(ctx->a);
 }
 
 int	main(int arg_n, char **arg_a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		using_split;
+	t_ctx	*ctx;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	using_split = 1;
+	ctx = malloc(sizeof(t_ctx));
+	ctx->us = 1;
+	ctx->arg_a = arg_a;
 	if (arg_n < 2 && !arg_a[1])
-		return (1);
+	{
+		free(ctx);
+		return (EXIT_FAILURE);
+	}
 	else if (arg_n == 2)
 	{
-		arg_a = ft_split(*(arg_a + 1), ' ');
-		using_split = 0;
+		ctx->arg_a = ft_split(*(ctx->arg_a + 1), ' ');
+		ctx->us = 0;
 	}
-	ft_ps_init_stack(&stack_a, arg_a + using_split, using_split);
-	push_swap(stack_a, stack_b);
-	if (!using_split)
+	ctx->arg_a += ctx->us;
+	ft_ps_init_stack(ctx);
+	push_swap(ctx);
+	if (!ctx->us)
 	{
 		ft_free_array(arg_a, ft_strarraylen(arg_a));
 		free(arg_a);
 	}
-	return (0);
+	free(ctx);
+	return (EXIT_SUCCESS);
 }

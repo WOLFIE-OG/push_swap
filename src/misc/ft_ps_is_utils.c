@@ -6,21 +6,24 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 17:17:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 18:38:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	ft_ps_is_sorted(t_stack *node)
+bool	ft_ps_is_sorted(t_stack *node)
 {
-	if (!node)
-		return (0);
-	while (node->next)
+	t_stack	*head;
+
+	head = node;
+	if (!head)
+		return (false);
+	while (head->next)
 	{
-		if (node->value > node->next->value)
-			return (0);
-		node = node->next;
+		if (head->value > head->next->value)
+			return (false);
+		head = head->next;
 	}
-	return (1);
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:08:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/14 17:29:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/06 18:39:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ t_stack	*ft_ps_get_min(t_stack *node)
 {
 	long	min;
 	t_stack	*min_node;
+	t_stack	*head;
 
-	if (!node)
+	head = node;
+	if (!head)
 		return (NULL);
 	min = LONG_MAX;
-	while (node)
+	while (head)
 	{
-		if (node->value < min)
+		if (head->value < min)
 		{
-			min = node->value;
-			min_node = node;
+			min = head->value;
+			min_node = head;
 		}
-		node = node->next;
+		head = head->next;
 	}
 	return (min_node);
 }
@@ -36,29 +38,34 @@ t_stack	*ft_ps_get_max(t_stack *node)
 {
 	long	max;
 	t_stack	*max_node;
+	t_stack	*head;
 
-	if (!node)
+	head = node;
+	if (!head)
 		return (NULL);
 	max = LONG_MIN;
-	while (node)
+	while (head)
 	{
-		if (node->value > max)
+		if (head->value > max)
 		{
-			max = node->value;
-			max_node = node;
+			max = head->value;
+			max_node = head;
 		}
-		node = node->next;
+		head = head->next;
 	}
 	return (max_node);
 }
 
 t_stack	*ft_ps_get_last(t_stack *node)
 {
-	if (!node)
+	t_stack	*head;
+
+	head = node;
+	if (!head)
 		return (NULL);
-	while (node->next)
-		node = node->next;
-	return (node);
+	while (head->next)
+		head = head->next;
+	return (head);
 }
 
 size_t	ft_ps_get_len(t_stack *node)
@@ -78,11 +85,14 @@ size_t	ft_ps_get_len(t_stack *node)
 
 t_stack	*ft_ps_get_cheapest(t_stack *node)
 {
-	while (node)
+	t_stack	*head;
+
+	head = node;
+	while (head)
 	{
-		if (node->is_cheapest)
-			return (node);
-		node = node->next;
+		if (head->is_cheapest)
+			return (head);
+		head = head->next;
 	}
 	return (NULL);
 }
