@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:09:30 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 13:56:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ int	main(int arg_n, char **arg_a)
 	push_swap(ctx);
 	if (!ctx->us)
 	{
-		ft_free_array(arg_a, ft_strarraylen(arg_a));
-		free(arg_a);
+		ft_free_array(ctx->arg_a, ft_strarraylen(ctx->arg_a));
+		free(ctx->arg_a);
 	}
 	free(ctx);
 	return (EXIT_SUCCESS);
