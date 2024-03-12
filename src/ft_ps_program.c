@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/12 16:31:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 16:39:07 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int arg_n, char **arg_a)
 		ft_ps_free_exit(ctx, false);
 	ctx->us = false;
 	ctx->arg_a = arg_a;
-	if (arg_n < 2 && !ft_strlen(arg_a[1]))
+	if (arg_n < 2 && !arg_a[1])
 		ft_ps_free_exit(ctx, false);
 	else if (arg_n == 2)
 	{

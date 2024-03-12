@@ -6,23 +6,23 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:04:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/12 16:23:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 17:10:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	ft_ps_rev_rotate(t_stack **stack)
+static void	ft_ps_rev_rotate(t_stack **node)
 {
 	t_stack	*tail;
 
-	if (!*stack || !(*stack)->next)
+	if (!*node || !(*node)->next)
 		return ;
-	tail = ft_ps_get_head_tail(*stack, true);
+	tail = ft_ps_get_head_tail(*node, true);
 	tail->prev->next = NULL;
-	tail->next = *stack;
+	tail->next = *node;
 	tail->prev = NULL;
-	*stack = tail;
+	*node = tail;
 	tail->next->prev = tail;
 }
 
