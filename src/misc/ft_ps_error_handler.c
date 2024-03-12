@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:11:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:07:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,27 @@ void	ft_ps_free_stack(t_ctx *ctx)
 	ctx->a = NULL;
 }
 
-void	ft_ps_free_errors(t_ctx *ctx)
+void	ft_ps_free_args(t_ctx *ctx)
 {
-	if (!ctx->us)
+	if (ctx->us)
 	{
 		ft_free_array(ctx->arg_a, ft_strarraylen(ctx->arg_a));
 		free(ctx->arg_a);
 	}
-	ft_ps_free_stack(ctx);
-	free(ctx);
-	ft_printf(BRED"Error!\n"RESET);
-	exit(EXIT_FAILURE);
+}
+
+void	ft_ps_free_exit(t_ctx *ctx, bool is_error)
+{
+	if (ctx)
+	{
+		ft_ps_free_args(ctx);
+		ft_ps_free_stack(ctx);
+		free(ctx);
+	}
+	if (is_error)
+	{
+		ft_printf(BRED"Error!\n"RESET);
+		exit(EXIT_FAILURE);
+	}
+	exit(EXIT_SUCCESS);
 }

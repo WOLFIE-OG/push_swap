@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 13:56:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:10:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,22 @@ int	main(int arg_n, char **arg_a)
 	t_ctx	*ctx;
 
 	ctx = malloc(sizeof(t_ctx));
-	ctx->us = 1;
+	if (!ctx)
+		ft_ps_free_exit(ctx, false);
+	ctx->us = false;
 	ctx->arg_a = arg_a;
-	if (arg_n < 2 && !arg_a[1])
-	{
-		free(ctx);
-		return (EXIT_FAILURE);
-	}
+	if (arg_n < 2 && !ft_strlen(arg_a[1]))
+		ft_ps_free_exit(ctx, false);
 	else if (arg_n == 2)
 	{
 		ctx->arg_a = ft_split(*(ctx->arg_a + 1), ' ');
-		ctx->us = 0;
+		ctx->us = true;
 	}
-	ctx->arg_a += ctx->us;
+	if (!ctx->us)
+		ctx->arg_a += 1;
 	ft_ps_init_stack(ctx);
 	push_swap(ctx);
-	if (!ctx->us)
-	{
-		ft_free_array(ctx->arg_a, ft_strarraylen(ctx->arg_a));
-		free(ctx->arg_a);
-	}
+	ft_ps_free_args(ctx);
 	free(ctx);
 	return (EXIT_SUCCESS);
 }

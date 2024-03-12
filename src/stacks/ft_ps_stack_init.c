@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:10:50 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:21:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_ps_append_node(t_stack **stack, int n)
 	}
 	else
 	{
-		node_last = ft_ps_get_last(*stack);
+		node_last = ft_ps_get_head_tail(*stack, true);
 		node_last->next = node;
 		node->prev = node_last;
 	}
@@ -52,11 +52,10 @@ void	ft_ps_init_stack(t_ctx *ctx)
 	while (*tmp)
 	{
 		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp))
-			ft_ps_free_errors(ctx);
+			ft_ps_free_exit(ctx, true);
 		n = ft_atol(*tmp);
-		if ((n < INT_MIN || n > INT_MAX)
-			|| ft_ps_error_duplicate(ctx, (int)n))
-			ft_ps_free_errors(ctx);
+		if ((n < INT_MIN || n > INT_MAX) || ft_ps_error_duplicate(ctx, (int)n))
+			ft_ps_free_exit(ctx, true);
 		ft_ps_append_node(&ctx->a, (int)n);
 		tmp++;
 	}

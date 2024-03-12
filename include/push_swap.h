@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:11:06 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:18:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_ctx
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		us;
+	bool	us;
 	char	**arg_a;
 }	t_ctx;
 
@@ -76,13 +76,14 @@ void	ft_ps_current_index(t_stack *node);
 
 bool	ft_ps_error_duplicate(t_ctx *ctx, int n);
 void	ft_ps_free_stack(t_ctx *ctx);
-void	ft_ps_free_errors(t_ctx *ctx);
+void	ft_ps_free_exit(t_ctx *ctx, bool is_error);
+void	ft_ps_free_args(t_ctx *ctx);
 
 // Get Utils - ft_ps_get_utils.c
 
 t_stack	*ft_ps_get_min(t_stack *node);
 t_stack	*ft_ps_get_max(t_stack *node);
-t_stack	*ft_ps_get_last(t_stack *node);
+t_stack	*ft_ps_get_head_tail(t_stack *node, bool end);
 size_t	ft_ps_get_len(t_stack *node);
 t_stack	*ft_ps_get_cheapest(t_stack *node);
 

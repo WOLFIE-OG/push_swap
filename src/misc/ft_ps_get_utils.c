@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:08:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 18:39:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:26:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,19 @@ t_stack	*ft_ps_get_max(t_stack *node)
 	return (max_node);
 }
 
-t_stack	*ft_ps_get_last(t_stack *node)
+t_stack	*ft_ps_get_head_tail(t_stack *node, bool end)
 {
 	t_stack	*head;
 
 	head = node;
 	if (!head)
 		return (NULL);
-	while (head->next)
-		head = head->next;
+	if (end)
+		while (head->next)
+			head = head->next;
+	else
+		while (head->prev)
+			head = head->prev;
 	return (head);
 }
 

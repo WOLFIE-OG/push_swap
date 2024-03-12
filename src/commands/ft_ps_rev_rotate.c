@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:04:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/08 17:06:14 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 15:19:02 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_ps_rev_rotate(t_stack **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	node_last = ft_ps_get_last(*stack);
+	node_last = ft_ps_get_head_tail(*stack, true);
 	node_last->prev->next = NULL;
 	node_last->next = *stack;
 	node_last->prev = NULL;
