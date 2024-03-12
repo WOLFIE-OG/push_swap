@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/12 15:10:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/12 16:31:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	ft_ps_print_node(t_stack **s, t_list *l, char *n, char *c)
 {
 	ft_printf("Stack:		(%s)\n", n);
+	ft_printf("Value:		%d\n", (*s)->value);
 	ft_printf("Cost:		%d\n", (*s)->cost);
 	ft_printf("Index:		%d\n", (*s)->index);
 	ft_printf("IsCheapest:	%d\n", (*s)->is_cheapest);
