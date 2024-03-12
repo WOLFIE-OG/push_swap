@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:06:11 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 19:05:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_ps_cost_analysis(t_ctx *ctx)
 	while (head)
 	{
 		head->cost = head->index;
-		if (!(head->is_above_med))
+		if (!head->is_above_med)
 			head->cost = len_a - (head->index);
 		if (head->target->is_above_med)
 			head->cost += head->target->index;
