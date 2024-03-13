@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 14:24:54 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 14:32:42 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int arg_n, char **arg_a)
 	ctx = malloc(sizeof(t_ctx));
 	if (!ctx)
 		ft_ps_free_exit(ctx, false);
+	ctx->a = NULL;
 	ctx->us = false;
 	ctx->arg_a = arg_a;
 	if (arg_n < 2 && !arg_a[1])

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/12 15:21:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 14:32:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_ps_init_stack(t_ctx *ctx)
 	char	**tmp;
 
 	tmp = ctx->arg_a;
-	ctx->a = NULL;
 	ctx->b = NULL;
 	while (*tmp)
 	{
