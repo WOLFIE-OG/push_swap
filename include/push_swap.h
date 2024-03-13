@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:58:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/12 15:18:50 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:23:59 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 	int					value;
 	size_t				index;
 	int					cost;
-	int					is_above_med;
+	int					above_middle;
 	int					is_cheapest;
 	struct s_stack		*target;
 	struct s_stack		*next;

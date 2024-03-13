@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:58:25 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 19:05:26 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:23:44 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	ft_ps_cost_analysis(t_ctx *ctx)
 	while (head)
 	{
 		head->cost = head->index;
-		if (!head->is_above_med)
+		if (!head->above_middle)
 			head->cost = len_a - (head->index);
-		if (head->target->is_above_med)
+		if (head->target->above_middle)
 			head->cost += head->target->index;
 		else
 			head->cost += len_b - (head->target->index);
@@ -67,9 +67,9 @@ void	ft_ps_current_index(t_stack *node)
 	{
 		node->index = index;
 		if (index <= med)
-			node->is_above_med = true;
+			node->above_middle = true;
 		else
-			node->is_above_med = false;
+			node->above_middle = false;
 		node = node->next;
 		index++;
 	}

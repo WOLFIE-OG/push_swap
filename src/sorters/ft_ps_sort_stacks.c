@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 17:42:16 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/06 19:11:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:24:13 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static void	ft_ps_move_a_to_b(t_ctx *ctx)
 	t_stack	*cheapest_node;
 
 	cheapest_node = ft_ps_get_cheapest(ctx->a);
-	if (cheapest_node->is_above_med
-		&& cheapest_node->target->is_above_med)
+	if (cheapest_node->above_middle
+		&& cheapest_node->target->above_middle)
 		ft_ps_rotate_both(ctx, cheapest_node, 1);
-	else if (!(cheapest_node->is_above_med)
-		&& !(cheapest_node->target->is_above_med))
+	else if (!(cheapest_node->above_middle)
+		&& !(cheapest_node->target->above_middle))
 		ft_ps_rotate_both(ctx, cheapest_node, 0);
 	ft_ps_push_prep(&ctx->a, cheapest_node, 1);
 	ft_ps_push_prep(&ctx->b, cheapest_node->target, 0);
@@ -54,7 +54,7 @@ static void	ft_ps_min_on_top(t_ctx *ctx)
 {
 	while (ctx->a->value != ft_ps_get_min(ctx->a)->value)
 	{
-		if (ft_ps_get_min(ctx->a)->is_above_med)
+		if (ft_ps_get_min(ctx->a)->above_middle)
 			ra(&ctx->a);
 		else
 			rra(&ctx->a);

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 15:04:54 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 16:23:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_ps_print_node(t_stack **s, t_list *l, char *n, char *c)
 	ft_printf("Cost:		%d\n", (*s)->cost);
 	ft_printf("Index:		%d\n", (*s)->index);
 	ft_printf("IsCheapest:	%d\n", (*s)->is_cheapest);
-	ft_printf("IsAMedian:	%d\n", (*s)->is_above_med);
+	ft_printf("IsAMedian:	%d\n", (*s)->above_middle);
 	ft_printf("Contents:	%L\n", l);
 	ft_printf("Command:	%s\n\n", c);
 }
