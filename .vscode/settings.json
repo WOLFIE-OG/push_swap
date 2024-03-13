@@ -24,5 +24,12 @@
 		"algorithm": "c",
 		"string_view": "c",
 		"unistd.h": "c"
-	}
+	},
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/home/otodd/Documents/Projects/42cursus/push_swap",
+			"binaryPath": "/home/otodd/Documents/Projects/42cursus/push_swap/push_swap",
+			"binaryArgs": []
+		}
+	]
 }
