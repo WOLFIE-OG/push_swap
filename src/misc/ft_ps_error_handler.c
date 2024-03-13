@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:46:39 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 14:58:05 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:01:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_ps_free_exit(t_ctx *ctx, bool is_error)
 	}
 	if (is_error)
 	{
-		ft_printf("Error");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	exit(EXIT_SUCCESS);
