@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:17:26 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 14:32:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:04:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int arg_n, char **arg_a)
 		ctx->arg_a = ft_split(*(ctx->arg_a + 1), ' ');
 		ctx->us = true;
 		if (!ft_strarraylen(ctx->arg_a))
-			ft_ps_free_exit(ctx, false);
+			ft_ps_free_exit(ctx, true);
 	}
 	if (!ctx->us)
 		ctx->arg_a += 1;
