@@ -22,6 +22,7 @@
 		"compare": "c",
 		"limits": "c",
 		"algorithm": "c",
-		"string_view": "c"
+		"string_view": "c",
+		"unistd.h": "c"
 	}
 }
