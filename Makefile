@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/03/12 14:41:37 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/13 14:30:19 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ GREEN=\033[1;32m
 BLUE=\033[0;34m
 NC=\033[0m
 
-CC 		= clang
+CC 		= cc
 CFLAGS 	= -Wall -Wextra -Werror -g
 NAME	= push_swap
 
