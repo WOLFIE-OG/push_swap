@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:08:41 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/13 14:32:46 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:18:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_ps_init_stack(t_ctx *ctx)
 	ctx->b = NULL;
 	while (*tmp)
 	{
-		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp))
+		if (!ft_ischeck_str(*tmp, ft_ismath) || !ft_strlen(*tmp)
+			|| !ft_isvalid_numstr(*tmp))
 			ft_ps_free_exit(ctx, true);
 		n = ft_atol(*tmp);
 		if ((n < INT_MIN || n > INT_MAX) || ft_ps_error_duplicate(ctx, (int)n))
