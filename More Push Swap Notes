@@ -1,0 +1,7 @@
+Target Node: Every node gets a target node in a to b
+	"Smallest bigger" = The smallest number in the stack that is bigger than itself.
+	
+	
+0 3 6 8 10 15
+
+7
