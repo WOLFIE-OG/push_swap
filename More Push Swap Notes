@@ -1,7 +1,114 @@
+typedef struct s_stack
+{
+	int					value;			| The value of the node.
+	size_t				index;			| The node position in the stack.
+	int					cost;			| The number of moves that would need to be made to put the node to the top of the stack.
+	int					above_middle;	| This is to optimise when rotating or reverse rotating
+	int					is_cheapest;	| Is this node the one with the least amount of moves needed to be put at the top.
+	struct s_stack		*target;		| The smallest bigger node in the opposite stack.
+	struct s_stack		*next;			| Next node in the stack.
+	struct s_stack		*prev;			| Previous node in the stack.
+	long				bmi;			| Best Match Index
+}	t_stack;
+
+typedef struct s_ctx
+{
+	t_stack	*a; 						| Stack A ptr.
+	t_stack	*b; 						| Stack B ptr.
+	bool	us; 						| Is using split, used for memory management.
+	char	**arg_a; 					| Argument array.
+}	t_ctx;
+
 Target Node: Every node gets a target node in a to b
 	"Smallest bigger" = The smallest number in the stack that is bigger than itself.
 	
-	
-0 3 6 8 10 15
+Example stack: 0 3 6 8 10 15
 
-7
+Context number 1: 7
+
+Context number 2: 16
+
+Context number 2: -1
+
+The case for stack A -> B:
+The smallest bigger in that stack for 7 would be 8 making it its best match index number and set the target node as the node with the value of 8.
+The is no smallest bigger in that stack for 16 so we set the best match index to LONG_MIN and set the target node as the smallest node.
+
+The case for stack B -> A:
+Instead of setting the best match index to LONG_MIN we set it to LONG_MAX
+
+Steps:
+
+Split the args if needed
+
+Init stack A and check for errors
+
+Check if the stack is sorted and if it has either two values or three
+
+swap A once if its two numbers
+
+tiny sort on stack A if its three
+
+tiny sort:
+	get the biggest value in stack A and store it
+
+	if the stored node is the same as the current A node:
+		rotate A 
+	if the current nodes next node is the same as the stored node:
+		reverse rotate A 
+	if the value of the current node is bigger than the next value:
+		swap A
+
+do the "turk" sorter if its more than three
+
+TURK:
+
+get the length of stack a
+
+Push the first two nodes of stack A to stack B if the length of stack A is more than three and stack A is not sorted
+
+while the length of stack A is still more than three and stack A is not sorted
+	init nodes A:
+		set the positions / indexs of stack A and stack B
+		calculate the targets / bmi for each node in stack A
+		calculate the cost of how many steps it will take for each node to be moved to the top
+		find the node in stack A with the least amount of steps to be pushed to the top and set the is_cheapest flag to true
+	
+	move A to B:
+		find the cheapest node of stack A and store it for use
+		
+		check if the cheapest node is above the middle of the stack and if the cheapest nodes target is also above the middle:
+			if so rotate both of that at the same time until either the cheapest node or the target node is at the top its stack
+				update the positions of each node in both stack A and B after rotation
+		
+		if neither of them are above the middle of the stack:
+			reverse rotate both if them at the same time
+		
+		correct the rotations of the cheapest node and its target if needed, putting them both at the top of each stack
+		push the top node of A to B
+
+three nodes remain in stack A so we do a tiny sort on stack A
+
+while stack B is not empty
+	init nodes B:
+		update the positions of each node in both stack A and B
+		set target nodes from B to A
+	
+	move B to A:
+		correct the rotations of each target node of A in B to bring the target to the top of b
+		push the top node of B to A
+
+set the positions of only stack A as stack B is empty
+
+while the current value of the stack A node is not the smallest value in A:
+	if the smallest value in A is above the middle of the stack:
+		rotate A
+	
+	if that is not the case:
+		reverse rotate A
+
+clear up memory and exit
+
+	
+
+
