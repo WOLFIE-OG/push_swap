@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 12:13:54 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 12:22:19 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,12 +85,12 @@ $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_D)
 
 clean:
-	@echo "[$(YELLOW)PUSH_SWAP$(NC)] Cleaning object files..."
+	@echo "[$(YELLOW)PUSH_SWAP$(NC)] Cleaning object directory..."
 	@$(MAKE) -s -C $(LIBFT_D) clean
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "[$(RED)PUSH_SWAP$(NC)] Cleaning executable file..."
+	@echo "[$(RED)PUSH_SWAP$(NC)] Cleaning executable directory..."
 	@$(MAKE) -s -C $(LIBFT_D) fclean
 	@rm -rf $(NAME)
 
