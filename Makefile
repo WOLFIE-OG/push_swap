@@ -6,18 +6,19 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/03/13 14:30:19 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 12:13:54 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
-BLUE=\033[0;34m
+BLUE=\033[1;34m
+CYAN=\033[1;36m
 NC=\033[0m
 
 CC 		= cc
-CFLAGS 	= -Wall -Wextra -Werror -g
+CFLAGS 	= -Wall -Wextra -Werror
 NAME	= push_swap
 
 SRC_DIR = src
@@ -68,30 +69,16 @@ dir:
 		mkdir -p obj; \
 	fi
 
-check_norminette:
-	@echo "[$(BLUE)PUSH_SWAP$(NC)] Checking for errors with Norminette..."
-	@if [ $$(pip list | grep "norminette" | wc -l) -gt 1 ]; then \
-		echo "[$(RED)PUSH_SWAP$(NC)] Norminette is not installed. Please install Norminette."; \
-		exit 1; \
-	else \
-		if [ $$(norminette src include | grep "Error:" | wc -l) -gt 0 ]; then \
-			echo "[$(RED)PUSH_SWAP$(NC)] Norminette found errors."; \
-			exit 1; \
-		else \
-			echo "[$(GREEN)PUSH_SWAP$(NC)] Norminette found no errors."; \
-		fi; \
-	fi
-
 $(NAME): $(OBJS)
-	@echo "[$(GREEN)PUSH_SWAP$(NC)] Building $@..."
+	@echo "[$(BLUE)PUSH_SWAP$(NC)] Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/push_swap.h | dir
-	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
+	@echo "[$(CYAN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/push_swap.h | dir
-	@echo "[$(GREEN)PUSH_SWAP$(NC)] Compiling $< --> $@"
+	@echo "[$(CYAN)PUSH_SWAP$(NC)] Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
@@ -103,7 +90,7 @@ clean:
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "[$(YELLOW)PUSH_SWAP$(NC)] Cleaning executable file..."
+	@echo "[$(RED)PUSH_SWAP$(NC)] Cleaning executable file..."
 	@$(MAKE) -s -C $(LIBFT_D) fclean
 	@rm -rf $(NAME)
 
