@@ -21,6 +21,8 @@ typedef struct s_ctx
 
 Target Node: Every node gets a target node in a to b
 	"Smallest bigger" = The smallest number in the stack that is bigger than itself.
+	if the current A value is bigger than the current B value and the current A value is smaller than the best match index:
+		set new bmi
 	
 Example stack: 0 3 6 8 10 15
 
