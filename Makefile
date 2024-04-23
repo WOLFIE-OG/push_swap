@@ -6,16 +6,16 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 17:53:24 by otodd             #+#    #+#              #
-#    Updated: 2024/03/20 14:35:48 by otodd            ###   ########.fr        #
+#    Updated: 2024/04/23 13:40:23 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-YELLOW=\033[1;33m
-RED=\033[1;31m
-GREEN=\033[1;32m
-BLUE=\033[1;34m
-CYAN=\033[1;36m
-NC=\033[0m
+YELLO			=	\033[1;33m
+RED				=	\033[1;31m
+GREEN			=	\033[1;32m
+BLUE			=	\033[1;34m
+CYAN			=	\033[1;36m
+NC				=	\033[0m
 
 CC 				= 	cc
 CFLAGS 			= 	-Wall -Wextra -Werror
