@@ -17,4 +17,30 @@ To install and build
   make
   ./push_swap 7 4 8 5 2 10 3 9 6 1
 ```
-    
+
+## Testing
+
+To run the tests
+
+```bash
+  bash tests/test_10.sh
+  bash tests/test_10_1_arg.sh
+  bash tests/test_50.sh
+  bash tests/test_50_1_arg.sh
+  bash tests/test_100.sh
+  bash tests/test_100_1_arg.sh
+```
+
+## Testing [Debug]
+
+To run the tests with additional debug information
+
+```bash
+  make re CFLAGS+=-DDEBUG_PRINT=1
+  bash tests/test_10.sh
+  bash tests/test_10_1_arg.sh
+  bash tests/test_50.sh
+  bash tests/test_50_1_arg.sh
+  bash tests/test_100.sh
+  bash tests/test_100_1_arg.sh
+```
