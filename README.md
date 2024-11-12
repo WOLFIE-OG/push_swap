@@ -4,7 +4,7 @@ This project involves sorting data on a stack, with a limited set of instruction
 
 ## State
 
-[![push_swap Build](https://img.shields.io/github/actions/workflow/status/WOLFIE-OG/push_swap/makefile.yml?style=for-the-badge)](https://github.com/WOLFIE-OG/push_swap/actions/workflows/makefile.yml) ![push_swap Score](https://img.shields.io/badge/Score-100%2F125-brightgreen?style=for-the-badge)
+[![push_swap Build](https://img.shields.io/github/actions/workflow/status/WOLFIE-OG/push_swap/makefile.yml?style=for-the-badge)](https://github.com/WOLFIE-OG/push_swap/actions/workflows/makefile.yml) ![push_swap Score](https://img.shields.io/badge/Score-100%2F100-brightgreen?style=for-the-badge)
 
 ## Installation & Building
 
